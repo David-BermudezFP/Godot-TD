@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=4 uid="uid://bxue250cok4ke"]
+[gd_scene load_steps=21 format=4 uid="uid://bxue250cok4ke"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="2_uoi2p"]
 [ext_resource type="Texture2D" uid="uid://bvvobldqdfsa6" path="res://spr_alex.png" id="3_qrcar"]
 [ext_resource type="Texture2D" uid="uid://uj81r3mo5hyl" path="res://topDown_baseTiles.png" id="4_abk1h"]
 [ext_resource type="Script" path="res://animation_player.gd" id="4_jelca"]
+[ext_resource type="AudioStream" uid="uid://csqaf68vvwe8i" path="res://Godot_music_Loop.mp3" id="5_ywh11"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ygss"]
 texture = ExtResource("4_abk1h")
@@ -1859,6 +1860,9 @@ texture = ExtResource("4_abk1h")
 [sub_resource type="TileSet" id="TileSet_cls0e"]
 sources/0 = SubResource("TileSetAtlasSource_357pk")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y75in"]
+size = Vector2(45, 77)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_elqu7"]
 size = Vector2(16, 14.625)
 
@@ -1952,6 +1956,21 @@ _data = {
 "RESET": SubResource("Animation_57382"),
 "derecha": SubResource("Animation_eq5b6")
 }
+
+[sub_resource type="GDScript" id="GDScript_kae4s"]
+script/source = "extends AudioStreamPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="plataforma rigida" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [1080.0]
@@ -2076,6 +2095,14 @@ polygon = PackedVector2Array(127, 175, 127, 193, 145, 193, 145, 175)
 position = Vector2(592, 175)
 polygon = PackedVector2Array(127, 175, 127, 193, 145, 193, 145, 175)
 
+[node name="Montaña 1" type="CollisionShape2D" parent="mundo"]
+position = Vector2(215.5, 71.5)
+shape = SubResource("RectangleShape2D_y75in")
+
+[node name="Montaña 2" type="CollisionShape2D" parent="mundo"]
+position = Vector2(744, 88)
+shape = SubResource("RectangleShape2D_y75in")
+
 [node name="Personaje" type="CharacterBody2D" parent="."]
 position = Vector2(856, 344)
 script = ExtResource("2_uoi2p")
@@ -2097,3 +2124,9 @@ libraries = {
 "": SubResource("AnimationLibrary_2xpxw")
 }
 script = ExtResource("4_jelca")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ywh11")
+volume_db = -20.0
+parameters/looping = true
+script = SubResource("GDScript_kae4s")
