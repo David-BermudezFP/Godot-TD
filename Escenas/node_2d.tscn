@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxue250cok4ke"]
+
+[ext_resource type="PackedScene" uid="uid://txo2gifpv3r5" path="res://Escenas/mundo.tscn" id="1_v6wcu"]
+[ext_resource type="PackedScene" uid="uid://cjuwy41dxcaj6" path="res://Escenas/personaje.tscn" id="2_yljwh"]
+[ext_resource type="PackedScene" uid="uid://dp6t8eeqngj8j" path="res://Escenas/torre_1.tscn" id="3_5158y"]
+[ext_resource type="PackedScene" uid="uid://7m6qna72s21i" path="res://Escenas/enemigo_agua_1.tscn" id="4_be02q"]
+
+[sub_resource type="Curve2D" id="Curve2D_gqv4q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1041.62, 238.708, 0, 0, 0, 0, 908.153, 238.708, 0, 0, 0, 0, 908.153, 413.226, 0, 0, 0, 0, 732.543, 415.232, 0, 0, 0, 0, 730.536, 81.241, 0, 0, 0, 0, 554.927, 81.241, 0, 0, 0, 0, 552.92, 413.226, 0, 0, 0, 0, 379.317, 413.226, 0, 0, 0, 0, 377.31, 236.702, 0, 0, 0, 0, 225.784, 237.705)
+}
+point_count = 10
+
+[node name="main" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [1080.0]
+
+[node name="Path2D_Rio" type="Path2D" parent="."]
+position = Vector2(-129, -5)
+scale = Vector2(0.996528, 0.997033)
+curve = SubResource("Curve2D_gqv4q")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D_Rio"]
+position = Vector2(1041.62, 238.708)
+rotates = false
+loop = false
+
+[node name="EnemigoAgua_1" parent="Path2D_Rio/PathFollow2D" instance=ExtResource("4_be02q")]
+position = Vector2(0, 0)
+
+[node name="mundo" parent="." instance=ExtResource("1_v6wcu")]
+
+[node name="Personaje" parent="." instance=ExtResource("2_yljwh")]
+position = Vector2(691, 207)
+
+[node name="Torres" type="Node" parent="."]
+
+[node name="Torre1" parent="Torres" instance=ExtResource("3_5158y")]
