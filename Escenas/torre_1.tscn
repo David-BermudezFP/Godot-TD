@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/torre_1.gd" id="1_edwvx"]
 [ext_resource type="Texture2D" uid="uid://dv7ners3t7n2h" path="res://Assets/Pokemon/bulbasaur.png" id="2_ntklt"]
-[ext_resource type="Script" path="res://Escenas/animation_player.gd" id="3_cu3vi"]
+[ext_resource type="Script" path="res://Scripts/animation_torre1.gd" id="3_cu3vi"]
 
 [sub_resource type="Animation" id="Animation_k7rmb"]
 length = 0.001
@@ -22,6 +22,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_dfken"]
 resource_name = "ataque"
 length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -62,11 +63,13 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_4msh7"]
 
 [node name="Torre1" type="Node2D"]
-position = Vector2(699, 263)
+position = Vector2(698, 266)
 script = ExtResource("1_edwvx")
 
+[node name="Aim" type="Marker2D" parent="."]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-49, 91)
+position = Vector2(2, 3)
 texture = ExtResource("2_ntklt")
 hframes = 8
 vframes = 4
@@ -78,12 +81,17 @@ libraries = {
 }
 script = ExtResource("3_cu3vi")
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(13, 16)
+[node name="Tower" type="Area2D" parent="."]
+position = Vector2(0, 8)
+collision_layer = 2
+collision_mask = 2
+collision_priority = 2.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-64, 80)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower"]
+position = Vector2(1.19209e-07, 5.96046e-08)
 scale = Vector2(7, 7)
 shape = SubResource("CircleShape2D_4msh7")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="BulletContainer" type="Node" parent="."]
+
+[connection signal="body_shape_entered" from="Tower" to="." method="_on_tower_body_shape_entered"]

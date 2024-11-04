@@ -83,9 +83,12 @@ _data = {
 
 [node name="EnemigoAgua_1" type="CharacterBody2D"]
 position = Vector2(1041.62, 238.708)
+collision_layer = 3
+collision_mask = 3
+collision_priority = 2.0
 script = ExtResource("1_qtx6f")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Enemigo_CB" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_al3ce")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

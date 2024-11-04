@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbyyxnslce1dh"]
+
+[ext_resource type="PackedScene" uid="uid://7m6qna72s21i" path="res://Escenas/enemigo_agua_1.tscn" id="1_qqa8r"]
+
+[sub_resource type="Curve2D" id="Curve2D_gqv4q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1041.62, 238.708, 0, 0, 0, 0, 908.153, 238.708, 0, 0, 0, 0, 908.153, 413.226, 0, 0, 0, 0, 732.543, 415.232, 0, 0, 0, 0, 730.536, 81.241, 0, 0, 0, 0, 554.927, 81.241, 0, 0, 0, 0, 552.92, 413.226, 0, 0, 0, 0, 379.317, 413.226, 0, 0, 0, 0, 377.31, 236.702, 0, 0, 0, 0, 225.784, 237.705)
+}
+point_count = 10
+
+[node name="Path2D_Rio" type="Path2D"]
+position = Vector2(-129, -5)
+scale = Vector2(0.996528, 0.997033)
+curve = SubResource("Curve2D_gqv4q")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(1041.62, 238.708)
+rotates = false
+loop = false
+
+[node name="EnemigoAgua_1" parent="PathFollow2D" instance=ExtResource("1_qqa8r")]
+position = Vector2(0, 0)
+scale = Vector2(1, 1)
