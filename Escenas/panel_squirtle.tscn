@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5bfereeq27vv"]
+
+[ext_resource type="Script" path="res://Scripts/panel_squirtle.gd" id="1_212ja"]
+[ext_resource type="Texture2D" uid="uid://6bqx3wmirl00" path="res://Assets/Pokemon/Squirtle.png" id="2_clila"]
+
+[node name="Panel squirtle" type="Panel"]
+texture_filter = 1
+offset_right = 50.0
+offset_bottom = 40.0
+focus_mode = 2
+script = ExtResource("1_212ja")
+
+[node name="Squirtle" type="Sprite2D" parent="."]
+position = Vector2(24, 11)
+scale = Vector2(2, 2)
+texture = ExtResource("2_clila")
+hframes = 2
+vframes = 4
+frame = 4
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

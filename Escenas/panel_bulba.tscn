@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://jjv55ns52b8p"]
+
+[ext_resource type="Script" path="res://Scripts/panel_bulbasaur.gd" id="1_1st8u"]
+[ext_resource type="Texture2D" uid="uid://dv7ners3t7n2h" path="res://Assets/Pokemon/bulbasaur.png" id="2_b22uj"]
+
+[node name="Panel bulbasaur" type="Panel"]
+texture_filter = 1
+offset_right = 50.0
+offset_bottom = 40.0
+focus_mode = 2
+script = ExtResource("1_1st8u")
+
+[node name="Bulbasaur" type="Sprite2D" parent="."]
+position = Vector2(26, 17)
+scale = Vector2(2, 2)
+texture = ExtResource("2_b22uj")
+hframes = 9
+vframes = 5
+frame = 36
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

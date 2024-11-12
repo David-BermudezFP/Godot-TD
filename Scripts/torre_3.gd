@@ -1,6 +1,6 @@
 extends Node2D
 
-var Bullet = preload("res://Escenas/hoja.tscn")
+var Bullet = preload("res://Escenas/fuego.tscn")
 var bulletDamage = 1
 var pathName
 var currTargets = []
@@ -10,13 +10,14 @@ func _ready() -> void:
 	self.get_child(1).get_child(0).play("idle")
 	$Cadencia.start()
 
-func _on_tower_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+func _on_tower_body_shape_entered_torre3(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body.name.contains("Enemigo"):
 		var tempArray = []
 		currTargets = get_node("Tower").get_overlapping_bodies()
 		
 		for i in currTargets:
-			if ("Enemigo" in i.name) and (("agua" in i.tipo)or("normal" in i.tipo)):
+			if ("Enemigo" in i.name) and (("planta" in i.tipo)or("normal" in i.tipo)):
+				i.speed = i.speed + 50
 				tempArray.append(i)
 				
 		var currTarget = null
@@ -34,7 +35,7 @@ func _on_tower_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index:
 		pathName = currTarget.get_node("../").get_parent().name
 		
 		
-func _on_cadencia_timeout() -> void:
+func _on_cadencia_timeout_torre3() -> void:
 	if curr != null:
 		self.get_child(1).get_child(0).play("ataque")
 		var tempBullet = Bullet.instantiate()

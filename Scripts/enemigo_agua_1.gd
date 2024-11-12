@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-
+@export var tipo = "agua"
 @export var speed = 50
-var health = 2
+var health = 3
+var leafsFollowing = []
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -12,3 +13,6 @@ func _process(delta):
 	
 	if health <= 0:
 		get_parent().get_parent().queue_free()
+		for i in leafsFollowing:
+			if is_instance_valid(i):
+				i.queue_free()

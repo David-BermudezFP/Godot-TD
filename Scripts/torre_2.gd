@@ -1,6 +1,6 @@
 extends Node2D
 
-var Bullet = preload("res://Escenas/hoja.tscn")
+var Bullet = preload("res://Escenas/gota.tscn")
 var bulletDamage = 1
 var pathName
 var currTargets = []
@@ -16,7 +16,7 @@ func _on_tower_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index:
 		currTargets = get_node("Tower").get_overlapping_bodies()
 		
 		for i in currTargets:
-			if ("Enemigo" in i.name) and (("agua" in i.tipo)or("normal" in i.tipo)):
+			if ("Enemigo" in i.name) and (("fuego" in i.tipo)or("normal" in i.tipo)):
 				tempArray.append(i)
 				
 		var currTarget = null

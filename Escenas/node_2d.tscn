@@ -1,12 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxue250cok4ke"]
+[gd_scene load_steps=8 format=3 uid="uid://bxue250cok4ke"]
 
 [ext_resource type="PackedScene" uid="uid://txo2gifpv3r5" path="res://Escenas/mundo.tscn" id="1_v6wcu"]
 [ext_resource type="PackedScene" uid="uid://cjuwy41dxcaj6" path="res://Escenas/personaje.tscn" id="2_yljwh"]
-[ext_resource type="PackedScene" uid="uid://dp6t8eeqngj8j" path="res://Escenas/torre_1.tscn" id="3_5158y"]
-[ext_resource type="Script" path="res://Escenas/path_spawner.gd" id="4_hcd0g"]
+[ext_resource type="Script" path="res://Scripts/path_spawner.gd" id="4_hcd0g"]
+[ext_resource type="PackedScene" uid="uid://cqlpg5b8wp7ea" path="res://Escenas/ui.tscn" id="4_nuc4a"]
+
+[sub_resource type="Curve2D" id="Curve2D_cpoax"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 376, -16, 0, 0, 0, 0, 376, 376, 0, 0, 0, 0, 552, 376, 0, 0, 0, 0, 552, 232, 0, 0, 0, 0, 96, 232)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_23b68"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 904, 232, 0, 0, 0, 0, 96, 232)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_8emq2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 552, -24, 0, 0, 0, 0, 552, 232, 0, 0, 0, 0, 96, 232)
+}
+point_count = 3
 
 [node name="main" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [1080.0]
+
+[node name="UI" parent="." instance=ExtResource("4_nuc4a")]
 
 [node name="mundo" parent="." instance=ExtResource("1_v6wcu")]
 
@@ -15,17 +35,20 @@ position = Vector2(691, 207)
 
 [node name="Torres" type="Node" parent="."]
 
-[node name="Torre1" parent="Torres" instance=ExtResource("3_5158y")]
-position = Vector2(730, 274)
-
 [node name="PathSpawner" type="Node2D" parent="."]
 script = ExtResource("4_hcd0g")
 
 [node name="Timer" type="Timer" parent="PathSpawner"]
-wait_time = 0.332
+wait_time = 2.0
 autostart = true
 
-[node name="Torre1" parent="." instance=ExtResource("3_5158y")]
-position = Vector2(647, 351)
+[node name="Camino_agua" type="Path2D" parent="."]
+curve = SubResource("Curve2D_cpoax")
+
+[node name="Camino_recto" type="Path2D" parent="."]
+curve = SubResource("Curve2D_23b68")
+
+[node name="Camino_tierra" type="Path2D" parent="."]
+curve = SubResource("Curve2D_8emq2")
 
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]

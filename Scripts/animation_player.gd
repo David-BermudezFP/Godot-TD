@@ -16,5 +16,4 @@ func _process(delta: float) -> void:
 		play("Abajo")
 	elif Input.is_action_pressed("ui_up"):
 		play("Arriba")
-	else:
-		play("RESET")
+	

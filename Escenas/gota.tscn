@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cehjstcuae3tx"]
+[gd_scene load_steps=5 format=3 uid="uid://p1n8no4udndp"]
 
-[ext_resource type="Texture2D" uid="uid://qnvifp48t0bc" path="res://Assets/Pokemon/hoja.png" id="1_6w11p"]
-[ext_resource type="Script" path="res://Scripts/proyectil.gd" id="1_ijdcd"]
+[ext_resource type="Script" path="res://Scripts/proyectil.gd" id="1_rlrhq"]
+[ext_resource type="Texture2D" uid="uid://by74skwi3wboy" path="res://Assets/Pokemon/gota.png" id="2_55nx1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a8oog"]
 radius = 2.0
@@ -15,14 +15,14 @@ height = 14.0
 collision_layer = 2
 collision_mask = 2
 collision_priority = 2.0
-script = ExtResource("1_ijdcd")
+script = ExtResource("1_rlrhq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1.19209e-07, -1.19209e-07)
-rotation = 1.5708
-scale = Vector2(0.0374629, 0.0401786)
-texture = ExtResource("1_6w11p")
+position = Vector2(-0.0468216, 0.0936445)
+rotation = -1.5708
+scale = Vector2(0.0558603, 0.0737008)
+texture = ExtResource("2_55nx1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 2
