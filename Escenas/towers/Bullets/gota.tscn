@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://p1n8no4udndp"]
+
+[ext_resource type="Script" path="res://Scripts/proyectil.gd" id="1_rlrhq"]
+[ext_resource type="Texture2D" uid="uid://by74skwi3wboy" path="res://Assets/Pokemon/torres/proyectiles/gota.png" id="2_55nx1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a8oog"]
+radius = 2.0
+height = 6.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_byj3m"]
+radius = 5.0
+height = 14.0
+
+[node name="Hoja" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+collision_priority = 2.0
+script = ExtResource("1_rlrhq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.0468216, 0.0936445)
+rotation = -1.5708
+scale = Vector2(0.0558603, 0.0737008)
+texture = ExtResource("2_55nx1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_a8oog")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 20
+visibility_layer = 20
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_byj3m")
+
+[node name="desaparecer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="timeout" from="desaparecer" to="." method="_on_desaparecer_timeout"]

@@ -1,6 +1,6 @@
 extends Panel
 
-@onready var tower = preload("res://Escenas/torre_1.tscn")
+@onready var tower = preload("res://Escenas/towers/torre_1.tscn")
 var currTile
 
 # Configura el foco y mouse_filter en ready
@@ -21,6 +21,15 @@ func _on_gui_input(event: InputEvent) -> void:
 		# Drag click izq
 		if get_child_count() > 1:
 			get_child(1).global_position = event.global_position
+			
+			##################################
+			var mapPath = get_tree().get_root().get_node("main/mundo/TileMapLayer")
+			var tile = mapPath.local_to_map(get_global_mouse_position())
+			currTile = mapPath.get_cell_atlas_coords(Vector2i())
+			if (currTile == Vector2i(1,4)):
+				get_child(1).get_node("Area").modulate = Color(0,255,0)
+			else:
+				get_child(1).get_node("Area").modulate = Color(255,255,255)
 		
 	elif event is InputEventMouseButton and event.button_mask == 0:
 		# Release Click izq
@@ -30,6 +39,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		else:
 			if get_child_count() > 1:
 				get_child(1).queue_free()
+			
 			var path = get_tree().get_root().get_node("main/Torres")
 			
 			path.add_child(tempTower)

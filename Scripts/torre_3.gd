@@ -1,6 +1,6 @@
 extends Node2D
 
-var Bullet = preload("res://Escenas/fuego.tscn")
+var Bullet = preload("res://Escenas/towers/Bullets/fuego.tscn")
 var bulletDamage = 1
 var pathName
 var currTargets = []
@@ -17,7 +17,6 @@ func _on_tower_body_shape_entered_torre3(body_rid: RID, body: Node2D, body_shape
 		
 		for i in currTargets:
 			if ("Enemigo" in i.name) and (("planta" in i.tipo)or("normal" in i.tipo)):
-				i.speed = i.speed + 50
 				tempArray.append(i)
 				
 		var currTarget = null

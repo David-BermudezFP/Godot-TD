@@ -1,6 +1,6 @@
 extends Panel
 
-@onready var tower = preload("res://Escenas/torre_3.tscn")
+@onready var tower = preload("res://Escenas/towers/torre_3.tscn")
 var currTile
 
 # Configura el foco y mouse_filter en ready
@@ -21,6 +21,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		# Drag click izq
 		if get_child_count() > 1:
 			get_child(1).global_position = event.global_position
+			
 		
 	elif event is InputEventMouseButton and event.button_mask == 0:
 		# Release Click izq

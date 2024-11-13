@@ -1,6 +1,6 @@
 extends Node2D
 
-var Bullet = preload("res://Escenas/gota.tscn")
+var Bullet = preload("res://Escenas/towers/Bullets/gota.tscn")
 var bulletDamage = 1
 var pathName
 var currTargets = []
@@ -10,7 +10,7 @@ func _ready() -> void:
 	self.get_child(1).get_child(0).play("idle")
 	$Cadencia.start()
 
-func _on_tower_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+func _on_tower_body_shape_entered_tower2(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body.name.contains("Enemigo"):
 		var tempArray = []
 		currTargets = get_node("Tower").get_overlapping_bodies()
@@ -45,7 +45,5 @@ func _on_cadencia_timeout() -> void:
 		curr.leafsFollowing.append(tempBullet)
 		
 
-
-func _on_tower_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+func _on_tower_body_shape_exited_tower2(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	self.get_child(1).get_child(0).play("idle")
-	

@@ -1,0 +1,122 @@
+[gd_scene load_steps=11 format=3 uid="uid://btffsyq24mjis"]
+
+[ext_resource type="Texture2D" uid="uid://cbcfb6qsqvnka" path="res://Assets/Pokemon/enemigos/fuego/growlite.png" id="1_cus5p"]
+[ext_resource type="Script" path="res://Scripts/enemigo_fuego_1_1.gd" id="1_vfs7h"]
+[ext_resource type="Script" path="res://Scripts/animation_tierra.gd" id="2_qqvy4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7et2q"]
+radius = 11.0454
+
+[sub_resource type="Animation" id="Animation_bm0j1"]
+resource_name = "Abajo"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 6]
+}
+
+[sub_resource type="Animation" id="Animation_fxg64"]
+resource_name = "Arriba"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 2]
+}
+
+[sub_resource type="Animation" id="Animation_sbrj8"]
+resource_name = "Derecha"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [5, 7]
+}
+
+[sub_resource type="Animation" id="Animation_fctha"]
+resource_name = "Izquierda"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 1]
+}
+
+[sub_resource type="Animation" id="Animation_a81no"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ewjb"]
+_data = {
+"Abajo": SubResource("Animation_bm0j1"),
+"Arriba": SubResource("Animation_fxg64"),
+"Derecha": SubResource("Animation_sbrj8"),
+"Izquierda": SubResource("Animation_fctha"),
+"RESET": SubResource("Animation_a81no")
+}
+
+[node name="Enemigo_fuego_1_1" type="CharacterBody2D"]
+script = ExtResource("1_vfs7h")
+
+[node name="Enemigo_CB" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7et2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, -3)
+scale = Vector2(1, 1.027)
+texture = ExtResource("1_cus5p")
+hframes = 2
+vframes = 4
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_6ewjb")
+}
+script = ExtResource("2_qqvy4")

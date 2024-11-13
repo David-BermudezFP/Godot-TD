@@ -1,6 +1,6 @@
 extends Panel
 
-@onready var tower = preload("res://Escenas/torre_2.tscn")
+@onready var tower = preload("res://Escenas/towers/torre_2.tscn")
 var currTile
 
 # Configura el foco y mouse_filter en ready

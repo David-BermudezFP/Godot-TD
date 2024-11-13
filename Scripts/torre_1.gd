@@ -1,6 +1,6 @@
 extends Node2D
 
-var Bullet = preload("res://Escenas/hoja.tscn")
+var Bullet = preload("res://Escenas/towers/Bullets/hoja.tscn")
 var bulletDamage = 1
 var pathName
 var currTargets = []

@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjuwy41dxcaj6"]
+[gd_scene load_steps=12 format=3 uid="uid://cjuwy41dxcaj6"]
 
 [ext_resource type="Script" path="res://Scripts/personaje.gd" id="1_n188r"]
 [ext_resource type="Texture2D" uid="uid://bvvobldqdfsa6" path="res://Assets/Personaje/spr_alex.png" id="2_l7xp4"]
 [ext_resource type="Script" path="res://Scripts/animation_player.gd" id="3_p378s"]
-[ext_resource type="AudioStream" uid="uid://csqaf68vvwe8i" path="res://Assets/Musica/Godot_music_Loop.mp3" id="4_m5htx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_elqu7"]
 size = Vector2(16, 15)
@@ -112,21 +111,6 @@ _data = {
 "derecha": SubResource("Animation_eq5b6")
 }
 
-[sub_resource type="GDScript" id="GDScript_kae4s"]
-script/source = "extends AudioStreamPlayer
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [node name="Personaje" type="CharacterBody2D"]
 script = ExtResource("1_n188r")
 
@@ -147,9 +131,3 @@ libraries = {
 "": SubResource("AnimationLibrary_2xpxw")
 }
 script = ExtResource("3_p378s")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_m5htx")
-volume_db = -20.0
-parameters/looping = true
-script = SubResource("GDScript_kae4s")

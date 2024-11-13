@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0u2c40os52wh"]
+
+[ext_resource type="Script" path="res://Scripts/panel_charmander.gd" id="1_4pmf7"]
+[ext_resource type="Texture2D" uid="uid://k66mc5ejm412" path="res://Assets/Pokemon/torres/charmander.png" id="2_ahawq"]
+
+[node name="Panel charmander" type="Panel"]
+texture_filter = 1
+offset_right = 50.0
+offset_bottom = 40.0
+focus_mode = 2
+script = ExtResource("1_4pmf7")
+
+[node name="charmander" type="Sprite2D" parent="."]
+position = Vector2(27, 17)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ahawq")
+hframes = 2
+vframes = 4
+frame = 4
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
