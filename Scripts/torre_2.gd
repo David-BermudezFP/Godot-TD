@@ -47,3 +47,14 @@ func _on_cadencia_timeout() -> void:
 
 func _on_tower_body_shape_exited_tower2(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	self.get_child(1).get_child(0).play("idle")
+
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_mask == 1:
+		var towerPath = get_tree().get_root().get_node("main/Torres")
+		for i in towerPath.get_child_count():
+			if towerPath.get_child(i).name != self.name:
+				towerPath.get_child(i).get_node("Upgrade/Upgrade").hide
+		
+		get_node("Upgrade/Upgrade").visible = !get_node("Upgrade/Upgrade").visible
+		get_node("Upgrade/Upgrade").global_position = self.position + Vector2(-65,20)

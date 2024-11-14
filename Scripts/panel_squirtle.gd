@@ -41,11 +41,13 @@ func _on_gui_input(event: InputEvent) -> void:
 				get_child(1).queue_free()
 				
 			if (currTile == Vector2i(1,4)):
+				
 				var path = get_tree().get_root().get_node("main/Torres")
 				
 				path.add_child(tempTower)
 				tempTower.global_position = event.global_position
 				tempTower.get_node("Area").hide()
+
 	else:
 		if get_child_count() > 1:
 			get_child(1).queue_free()
