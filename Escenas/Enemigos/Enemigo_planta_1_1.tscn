@@ -100,6 +100,8 @@ _data = {
 }
 
 [node name="Enemigo_planta_1_1" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("1_xrgo4")
 
 [node name="Enemigo_CB" type="CollisionShape2D" parent="."]

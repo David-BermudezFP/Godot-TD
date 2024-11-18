@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4b1305ydaa5q"]
+
+[ext_resource type="PackedScene" uid="uid://cmxsfpvd1la0u" path="res://Escenas/Enemigos/Enemigo_normal_tank.tscn" id="1_pj3v1"]
+
+[sub_resource type="Curve2D" id="Curve2D_23b68"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 904, 232, 0, 0, 0, 0, -8, 232)
+}
+point_count = 2
+
+[node name="Camino_recto" type="Path2D"]
+curve = SubResource("Curve2D_23b68")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(904, 232)
+rotates = false
+loop = false
+
+[node name="EnemigoNormal_tank" parent="PathFollow2D" instance=ExtResource("1_pj3v1")]
+position = Vector2(1, -1)
+tipo = "normal"

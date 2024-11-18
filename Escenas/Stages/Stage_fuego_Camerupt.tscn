@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b34wcc0ivw847"]
+
+[ext_resource type="PackedScene" uid="uid://cxcvh1anwygn8" path="res://Escenas/Enemigos/Enemigo_fuego_tank.tscn" id="1_l5mo6"]
+
+[sub_resource type="Curve2D" id="Curve2D_vv28f"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 552, -24, 0, 0, 0, 0, 552, 232, 0, 0, 0, 0, -8, 232)
+}
+point_count = 3
+
+[node name="Camino_tierra" type="Path2D"]
+curve = SubResource("Curve2D_vv28f")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(552, -24)
+rotation = 1.5708
+rotates = false
+loop = false
+
+[node name="EnemigoFuego_tank" parent="PathFollow2D" instance=ExtResource("1_l5mo6")]
+position = Vector2(1, 0)
+rotation = -1.5708

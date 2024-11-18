@@ -57,3 +57,4 @@ script = SubResource("GDScript_33xn7")
 
 [connection signal="timeout" from="PathSpawner/Cronómetro" to="PathSpawner" method="_on_cronómetro_timeout"]
 [connection signal="timeout" from="PathSpawner/3s" to="PathSpawner" method="_on_3s_timeout"]
+[connection signal="timeout" from="PathSpawner/4s" to="PathSpawner" method="_on_4s_timeout"]

@@ -102,8 +102,8 @@ _data = {
 [node name="EnemigoAgua_1_1" type="CharacterBody2D"]
 texture_filter = 1
 position = Vector2(1041.62, 238.708)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_4yr8w")
 
 [node name="Enemigo_CB" type="CollisionShape2D" parent="."]

@@ -13,11 +13,7 @@ curve = SubResource("Curve2D_23b68")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(904, 232)
-rotation = 3.14159
 rotates = false
 loop = false
 
 [node name="Enemigo_normal_1_1" parent="PathFollow2D" instance=ExtResource("1_jj2kg")]
-rotation = 3.14159
-collision_layer = 3
-collision_mask = 3

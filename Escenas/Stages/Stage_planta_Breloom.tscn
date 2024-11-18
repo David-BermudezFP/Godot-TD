@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv8pf0sbvjkai"]
+
+[ext_resource type="PackedScene" uid="uid://ubb6y2lffcce" path="res://Escenas/Enemigos/Enemigo_planta_1_2.tscn" id="1_2yejv"]
+
+[sub_resource type="Curve2D" id="Curve2D_56ml0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 904, 56, 0, 0, 0, 0, 664, 56, 0, 0, 0, 0, 664, 232, 0, 0, 0, 0, -16, 232)
+}
+point_count = 4
+
+[node name="Camino_planta" type="Path2D"]
+curve = SubResource("Curve2D_56ml0")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(904, 56)
+rotation = 3.14159
+rotates = false
+loop = false
+
+[node name="Enemigo_planta_1_2" parent="PathFollow2D" instance=ExtResource("1_2yejv")]
+rotation = 3.14159

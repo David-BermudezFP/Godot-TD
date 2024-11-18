@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://hvljc0dlsfnd"]
+
+[ext_resource type="PackedScene" uid="uid://ddcwxm6oylaew" path="res://Escenas/Enemigos/Enemigo_agua_tank.tscn" id="1_x5028"]
+
+[sub_resource type="Curve2D" id="Curve2D_mfssk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 376, -16, 0, 0, 0, 0, 376, 376, 0, 0, 0, 0, 552, 376, 0, 0, 0, 0, 552, 232, 0, 0, 0, 0, -8, 232)
+}
+point_count = 5
+
+[node name="Camino_agua" type="Path2D"]
+curve = SubResource("Curve2D_mfssk")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(376, -16)
+scale = Vector2(0.996528, 0.997033)
+rotates = false
+loop = false
+
+[node name="EnemigoAgua_tank" parent="PathFollow2D" instance=ExtResource("1_x5028")]
+position = Vector2(9.03134, -1.19209e-07)

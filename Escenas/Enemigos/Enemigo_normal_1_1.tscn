@@ -45,11 +45,11 @@ _data = {
 }
 
 [node name="Enemigo_normal_1_1" type="CharacterBody2D"]
-collision_layer = 9
-collision_mask = 9
+collision_layer = 16
+collision_mask = 16
 script = ExtResource("1_3n5bc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Enemigo_CB" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mh4ar")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

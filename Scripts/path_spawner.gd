@@ -1,26 +1,34 @@
 extends Node2D
 
-var psyduck = preload("res://Escenas/Stages/Stage_psyduck.tscn")
-var rattata = preload("res://Escenas/Stages/Stage_ratata.tscn")
-var growlite = preload("res://Escenas/Stages/Stage_growlite.tscn")
-var shroomish = preload("res://Escenas/Stages/Stage_shroomish.tscn")
+#PLANTA
+var shroomish = preload("res://Escenas/Stages/Stage_planta_shroomish.tscn")
+var breloom = preload("res://Escenas/Stages/Stage_planta_Breloom.tscn")
+var exeggcutor = preload("res://Escenas/Stages/Stage_planta_Exeggcutor.tscn")
+#AGUA
+var psyduck = preload("res://Escenas/Stages/Stage_agua_psyduck.tscn")
+var golduck = preload("res://Escenas/Stages/Stage_agua_golduck.tscn")
+var wailord = preload("res://Escenas/Stages/Stage_agua_Wailord.tscn")
+#FUEGO
+var growlite = preload("res://Escenas/Stages/Stage_fuego_growlite.tscn")
+var arcanine = preload("res://Escenas/Stages/Stage_fuego_arcanine.tscn")
+var camerupt = preload("res://Escenas/Stages/Stage_fuego_Camerupt.tscn")
+#NORMAL
+var rattata = preload("res://Escenas/Stages/Stage_normal_ratata.tscn")
+var raticate = preload("res://Escenas/Stages/Stage_normal_ratikate.tscn")
+var snorlax = preload("res://Escenas/Stages/Stage_normal_Snorlax.tscn")
+
 
 var tempPath
-
 
 func _on_cronómetro_timeout() -> void:
 	pass
 
 func _on_3s_timeout() -> void:
-	tempPath = shroomish.instantiate()
-	add_child(tempPath)
-	add_child(rattata.instantiate())
-	add_child(shroomish.instantiate())
+	add_child(camerupt.instantiate())
+	
 
 func _on_4s_timeout() -> void:
-	tempPath = growlite.instantiate()
-	add_child(tempPath)
+	add_child(snorlax.instantiate())
 
 func _on_10s_timeout() -> void:
-	tempPath = growlite.instantiate()
-	add_child(tempPath)
+	pass

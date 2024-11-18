@@ -18,7 +18,6 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 
 window/size/viewport_width=840
 window/size/viewport_height=480
-window/size/mode=3
 window/size/initial_position_type=2
 window/stretch/mode="canvas_items"
 
@@ -28,4 +27,8 @@ window/stretch/mode="canvas_items"
 2d_render/layer_3="fuego"
 2d_render/layer_4="fuego"
 2d_render/layer_5="normal"
+2d_physics/layer_1="torre"
 2d_physics/layer_2="agua"
+2d_physics/layer_3="fuego"
+2d_physics/layer_4="planta"
+2d_physics/layer_5="normal"

@@ -12,8 +12,8 @@ radius = 5.0
 height = 14.0
 
 [node name="Hoja" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 18
+collision_mask = 18
 collision_priority = 2.0
 script = ExtResource("1_ijdcd")
 
@@ -25,12 +25,14 @@ scale = Vector2(0.0374629, 0.0401786)
 texture = ExtResource("1_6w11p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 2
-visibility_layer = 2
+light_mask = 18
+visibility_layer = 18
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_a8oog")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 18
+collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 light_mask = 18

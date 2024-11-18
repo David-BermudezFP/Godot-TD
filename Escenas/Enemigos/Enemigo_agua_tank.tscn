@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=3 uid="uid://ddcwxm6oylaew"]
+
+[ext_resource type="Script" path="res://Scripts/enemigo_agua_tank.gd" id="1_j63m7"]
+[ext_resource type="Texture2D" uid="uid://dlef4ci8ljrr" path="res://Assets/Pokemon/enemigos/agua/Wailord.png" id="2_8uv2o"]
+[ext_resource type="Script" path="res://Scripts/animation_agua.gd" id="3_1na3a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6yo23"]
+radius = 10.26
+height = 52.19
+
+[sub_resource type="Animation" id="Animation_bm0j1"]
+resource_name = "Abajo"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_fxg64"]
+resource_name = "Arriba"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [12, 14]
+}
+
+[sub_resource type="Animation" id="Animation_sbrj8"]
+resource_name = "Derecha"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 10]
+}
+
+[sub_resource type="Animation" id="Animation_fctha"]
+resource_name = "Izquierda"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 6]
+}
+
+[sub_resource type="Animation" id="Animation_a81no"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ewjb"]
+_data = {
+"Abajo": SubResource("Animation_bm0j1"),
+"Arriba": SubResource("Animation_fxg64"),
+"Derecha": SubResource("Animation_sbrj8"),
+"Izquierda": SubResource("Animation_fctha"),
+"RESET": SubResource("Animation_a81no")
+}
+
+[node name="EnemigoAgua_tank" type="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(1041.62, 238.708)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_j63m7")
+
+[node name="Enemigo_CB" type="CollisionShape2D" parent="."]
+position = Vector2(-11.62, 0.292007)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_6yo23")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-7.62001, -26.708)
+scale = Vector2(0.691406, 0.717687)
+texture = ExtResource("2_8uv2o")
+hframes = 4
+vframes = 4
+frame = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_6ewjb")
+}
+script = ExtResource("3_1na3a")

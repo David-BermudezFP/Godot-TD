@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bbyyxnslce1dh"]
 
-[ext_resource type="PackedScene" uid="uid://7m6qna72s21i" path="res://Escenas/Enemigos/Enemigo_agua_1_1.tscn" id="1_hsqf1"]
+[ext_resource type="PackedScene" uid="uid://7m6qna72s21i" path="res://Escenas/Enemigos/Enemigo_agua_1_1.tscn" id="1_av58m"]
 
 [sub_resource type="Curve2D" id="Curve2D_mfssk"]
 _data = {
@@ -17,5 +17,5 @@ scale = Vector2(0.996528, 0.997033)
 rotates = false
 loop = false
 
-[node name="Enemigo_agua_1_1" parent="PathFollow2D" instance=ExtResource("1_hsqf1")]
+[node name="Enemigo_agua_1_1" parent="PathFollow2D" instance=ExtResource("1_av58m")]
 position = Vector2(0, 1.00299)

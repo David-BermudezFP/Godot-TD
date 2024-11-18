@@ -11,11 +11,11 @@ focus_mode = 2
 script = ExtResource("1_1st8u")
 
 [node name="Bulbasaur" type="Sprite2D" parent="."]
-position = Vector2(26, 17)
+position = Vector2(29, 13)
 scale = Vector2(2, 2)
 texture = ExtResource("2_b22uj")
-hframes = 9
-vframes = 5
-frame = 36
+hframes = 2
+vframes = 4
+frame = 4
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
