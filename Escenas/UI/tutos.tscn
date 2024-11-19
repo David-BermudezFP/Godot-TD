@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6j6gcmyiugjt"]
+
+[ext_resource type="Texture2D" uid="uid://cb7tmdlt7d1te" path="res://Assets/UI/Titulo.png" id="1_2byp2"]
+[ext_resource type="VideoStream" path="res://Assets/Pokemon/torres/videos/bulba.ogv" id="2_5mqix"]
+[ext_resource type="VideoStream" path="res://Assets/Pokemon/torres/videos/squirt.ogv" id="2_mbv8v"]
+[ext_resource type="PackedScene" uid="uid://txo2gifpv3r5" path="res://Escenas/mundo.tscn" id="3_j888x"]
+[ext_resource type="VideoStream" path="res://Assets/Pokemon/torres/videos/char.ogv" id="4_ib4nn"]
+[ext_resource type="Texture2D" uid="uid://kajuhfu6xm3p" path="res://Assets/UI/volver.png" id="6_68tdt"]
+[ext_resource type="Script" path="res://Scripts/volver.gd" id="7_k1tf6"]
+
+[node name="Tutos" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 24.0
+offset_top = 32.0
+offset_right = 824.0
+offset_bottom = 448.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 232.0
+offset_top = 40.0
+offset_right = 640.0
+offset_bottom = 160.0
+texture = ExtResource("1_2byp2")
+
+[node name="Planta" type="VideoStreamPlayer" parent="."]
+offset_left = 40.0
+offset_top = 168.0
+offset_right = 1320.0
+offset_bottom = 888.0
+scale = Vector2(0.15, 0.15)
+stream = ExtResource("2_5mqix")
+volume_db = -80.0
+autoplay = true
+loop = true
+
+[node name="Agua" type="VideoStreamPlayer" parent="."]
+offset_left = 328.0
+offset_top = 168.0
+offset_right = 1608.0
+offset_bottom = 888.0
+scale = Vector2(0.15, 0.15)
+stream = ExtResource("2_mbv8v")
+volume_db = -80.0
+autoplay = true
+loop = true
+
+[node name="Fuego" type="VideoStreamPlayer" parent="."]
+offset_left = 616.0
+offset_top = 168.0
+offset_right = 1896.0
+offset_bottom = 888.0
+scale = Vector2(0.15, 0.15)
+stream = ExtResource("4_ib4nn")
+volume_db = -80.0
+autoplay = true
+loop = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 288.0
+offset_right = 784.0
+offset_bottom = 360.0
+text = "      Planta -> Agua                                         Agua -> Fuego                                           Fuego -> Planta
+
+Existen 3 tipos de torres para 3 mismos tipos de enemigos que solo serán atacados por las 
+torres del tipo que las oponga.
+
+También existen los enemigos de tipo normal que serán atacados po cualquier torre"
+
+[node name="mundo" parent="." instance=ExtResource("3_j888x")]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 688.0
+offset_top = 48.0
+offset_right = 808.0
+offset_bottom = 120.0
+icon = ExtResource("6_68tdt")
+expand_icon = true
+script = ExtResource("7_k1tf6")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=3 uid="uid://j4xdcny24ol8"]
+
+[ext_resource type="AudioStream" uid="uid://dynw6s2773qkf" path="res://Assets/Musica/Godot x16 v2.mp3" id="1_7q5qb"]
+[ext_resource type="PackedScene" uid="uid://txo2gifpv3r5" path="res://Escenas/mundo.tscn" id="1_bd4ma"]
+[ext_resource type="Texture2D" uid="uid://cb7tmdlt7d1te" path="res://Assets/UI/Titulo.png" id="2_66rvf"]
+[ext_resource type="Script" path="res://Scripts/play.gd" id="3_iojbn"]
+[ext_resource type="Script" path="res://Scripts/quit.gd" id="3_xym88"]
+[ext_resource type="Texture2D" uid="uid://dbt2gi11m4xm3" path="res://Assets/UI/play.png" id="4_qoo5g"]
+[ext_resource type="Texture2D" uid="uid://d3vhtpvcbbtky" path="res://Assets/UI/tuto.png" id="5_qsp63"]
+[ext_resource type="Script" path="res://Scripts/tuto.gd" id="5_qx7qs"]
+[ext_resource type="Texture2D" uid="uid://dqxawnsjbj8p1" path="res://Assets/UI/opciones.png" id="6_xxkye"]
+[ext_resource type="Texture2D" uid="uid://dc4dodcs0fer2" path="res://Assets/UI/quit.png" id="8_v6u0y"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="GodotX16V2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_7q5qb")
+volume_db = -30.0
+autoplay = true
+parameters/looping = false
+
+[node name="mundo" parent="." instance=ExtResource("1_bd4ma")]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 24.0
+offset_top = 32.0
+offset_right = 824.0
+offset_bottom = 448.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 8.0
+offset_right = 616.0
+offset_bottom = 128.0
+texture = ExtResource("2_66rvf")
+
+[node name="play" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
+offset_left = 184.0
+offset_top = 160.0
+offset_right = 384.0
+offset_bottom = 260.0
+text = "PLAY"
+script = ExtResource("3_iojbn")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/play"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 16.0
+offset_right = 160.0
+offset_bottom = 80.0
+texture = ExtResource("4_qoo5g")
+expand_mode = 1
+
+[node name="tuto" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
+offset_left = 448.0
+offset_top = 160.0
+offset_right = 648.0
+offset_bottom = 260.0
+text = "TUTORIAL"
+script = ExtResource("5_qx7qs")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/tuto"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 176.0
+offset_bottom = 88.0
+texture = ExtResource("5_qsp63")
+expand_mode = 1
+
+[node name="options" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
+offset_left = 184.0
+offset_top = 280.0
+offset_right = 384.0
+offset_bottom = 380.0
+text = "OPTIONS"
+
+[node name="TextureRect" type="TextureRect" parent="Panel/options"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 88.0
+texture = ExtResource("6_xxkye")
+expand_mode = 1
+
+[node name="quit" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
+offset_left = 448.0
+offset_top = 280.0
+offset_right = 648.0
+offset_bottom = 380.0
+text = "QUIT"
+script = ExtResource("3_xym88")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/quit"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 16.0
+offset_right = 160.0
+offset_bottom = 80.0
+texture = ExtResource("8_v6u0y")
+expand_mode = 1
+
+[connection signal="pressed" from="Panel/play" to="Panel/play" method="_on_pressed"]
+[connection signal="pressed" from="Panel/tuto" to="Panel/tuto" method="_on_pressed"]
+[connection signal="pressed" from="Panel/quit" to="Panel/quit" method="_on_pressed"]

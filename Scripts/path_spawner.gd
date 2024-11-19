@@ -24,11 +24,14 @@ func _on_cronómetro_timeout() -> void:
 	pass
 
 func _on_3s_timeout() -> void:
-	add_child(camerupt.instantiate())
-	
+	add_child(psyduck.instantiate())
+	add_child(growlite.instantiate())
+	add_child(shroomish.instantiate())
+	add_child(rattata.instantiate())
 
 func _on_4s_timeout() -> void:
-	add_child(snorlax.instantiate())
+	add_child(growlite.instantiate())
+
 
 func _on_10s_timeout() -> void:
 	pass
