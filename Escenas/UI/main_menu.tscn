@@ -1,6 +1,5 @@
 [gd_scene load_steps=11 format=3 uid="uid://j4xdcny24ol8"]
 
-[ext_resource type="AudioStream" uid="uid://dynw6s2773qkf" path="res://Assets/Musica/Godot x16 v2.mp3" id="1_7q5qb"]
 [ext_resource type="PackedScene" uid="uid://txo2gifpv3r5" path="res://Escenas/mundo.tscn" id="1_bd4ma"]
 [ext_resource type="Texture2D" uid="uid://cb7tmdlt7d1te" path="res://Assets/UI/Titulo.png" id="2_66rvf"]
 [ext_resource type="Script" path="res://Scripts/play.gd" id="3_iojbn"]
@@ -9,15 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://d3vhtpvcbbtky" path="res://Assets/UI/tuto.png" id="5_qsp63"]
 [ext_resource type="Script" path="res://Scripts/tuto.gd" id="5_qx7qs"]
 [ext_resource type="Texture2D" uid="uid://dqxawnsjbj8p1" path="res://Assets/UI/opciones.png" id="6_xxkye"]
+[ext_resource type="Script" path="res://Scripts/options.gd" id="7_x118m"]
 [ext_resource type="Texture2D" uid="uid://dc4dodcs0fer2" path="res://Assets/UI/quit.png" id="8_v6u0y"]
 
 [node name="MainMenu" type="Node2D"]
-
-[node name="GodotX16V2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_7q5qb")
-volume_db = -30.0
-autoplay = true
-parameters/looping = false
 
 [node name="mundo" parent="." instance=ExtResource("1_bd4ma")]
 
@@ -81,6 +75,7 @@ offset_top = 280.0
 offset_right = 384.0
 offset_bottom = 380.0
 text = "OPTIONS"
+script = ExtResource("7_x118m")
 
 [node name="TextureRect" type="TextureRect" parent="Panel/options"]
 layout_mode = 0
@@ -112,4 +107,5 @@ expand_mode = 1
 
 [connection signal="pressed" from="Panel/play" to="Panel/play" method="_on_pressed"]
 [connection signal="pressed" from="Panel/tuto" to="Panel/tuto" method="_on_pressed"]
+[connection signal="pressed" from="Panel/options" to="Panel/options" method="_on_pressed"]
 [connection signal="pressed" from="Panel/quit" to="Panel/quit" method="_on_pressed"]

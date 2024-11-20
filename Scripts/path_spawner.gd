@@ -21,7 +21,7 @@ var snorlax = preload("res://Escenas/Stages/Stage_normal_Snorlax.tscn")
 var tempPath
 
 func _on_cronómetro_timeout() -> void:
-	pass
+	Game.increase_score(1)
 
 func _on_3s_timeout() -> void:
 	add_child(psyduck.instantiate())

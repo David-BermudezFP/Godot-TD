@@ -1,24 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxue250cok4ke"]
+[gd_scene load_steps=4 format=3 uid="uid://bxue250cok4ke"]
 
 [ext_resource type="PackedScene" uid="uid://txo2gifpv3r5" path="res://Escenas/mundo.tscn" id="1_v6wcu"]
 [ext_resource type="Script" path="res://Scripts/path_spawner.gd" id="4_hcd0g"]
 [ext_resource type="PackedScene" uid="uid://cqlpg5b8wp7ea" path="res://Escenas/UI/ui.tscn" id="4_nuc4a"]
-[ext_resource type="AudioStream" uid="uid://csqaf68vvwe8i" path="res://Assets/Musica/Godot_music_Loop.mp3" id="5_o4g6j"]
-
-[sub_resource type="GDScript" id="GDScript_f0ch6"]
-script/source = "extends AudioStreamPlayer
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	play()
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [node name="main" type="Node2D"]
 texture_filter = 1
@@ -33,8 +17,7 @@ metadata/_edit_horizontal_guides_ = [1080.0]
 [node name="PathSpawner" type="Node2D" parent="."]
 script = ExtResource("4_hcd0g")
 
-[node name="Cronómetro" type="Timer" parent="PathSpawner"]
-wait_time = 4096.0
+[node name="Score" type="Timer" parent="PathSpawner"]
 autostart = true
 
 [node name="3s" type="Timer" parent="PathSpawner"]
@@ -48,12 +31,6 @@ wait_time = 5.0
 wait_time = 10.0
 autostart = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_o4g6j")
-volume_db = -20.0
-parameters/looping = true
-script = SubResource("GDScript_f0ch6")
-
-[connection signal="timeout" from="PathSpawner/Cronómetro" to="PathSpawner" method="_on_cronómetro_timeout"]
+[connection signal="timeout" from="PathSpawner/Score" to="PathSpawner" method="_on_cronómetro_timeout"]
 [connection signal="timeout" from="PathSpawner/3s" to="PathSpawner" method="_on_3s_timeout"]
 [connection signal="timeout" from="PathSpawner/4s" to="PathSpawner" method="_on_4s_timeout"]

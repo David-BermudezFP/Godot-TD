@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://j5cbfluqjvn1"]
+[gd_scene load_steps=30 format=3 uid="uid://j5cbfluqjvn1"]
 
 [ext_resource type="Script" path="res://Scripts/torre_3.gd" id="1_552m0"]
 [ext_resource type="Texture2D" uid="uid://k66mc5ejm412" path="res://Assets/Pokemon/torres/charmander.png" id="2_jitnc"]
@@ -177,6 +177,9 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4msh7"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqx5t"]
+size = Vector2(2.85714, 2.85714)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_5qmjj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3olj1"]
@@ -306,9 +309,20 @@ position = Vector2(1.19209e-07, 1)
 scale = Vector2(7, 7)
 shape = SubResource("CircleShape2D_4msh7")
 
+[node name="TowerDetector" type="Area2D" parent="."]
+process_mode = 3
+position = Vector2(0, 8)
+collision_priority = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerDetector"]
+position = Vector2(1.78814e-07, -4.76837e-07)
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_oqx5t")
+
 [node name="BulletContainer" type="Node" parent="."]
 
 [node name="Cadencia" type="Timer" parent="."]
+wait_time = 1.5
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
@@ -362,7 +376,7 @@ offset_top = 18.7692
 offset_right = 63.8462
 offset_bottom = 41.7692
 scale = Vector2(0.3, 0.3)
-text = "50
+text = "10
 "
 horizontal_alignment = 1
 
@@ -383,8 +397,7 @@ offset_top = 18.7692
 offset_right = 63.6924
 offset_bottom = 41.7692
 scale = Vector2(0.3, 0.3)
-text = "50
-"
+text = "10"
 horizontal_alignment = 1
 
 [node name="Power" type="Button" parent="Upgrade/Upgrade/HBoxContainer"]
@@ -403,8 +416,7 @@ offset_top = 18.7692
 offset_right = 63.5385
 offset_bottom = 41.7692
 scale = Vector2(0.3, 0.3)
-text = "50
-"
+text = "10"
 horizontal_alignment = 1
 
 [node name="Sell" type="Button" parent="Upgrade/Upgrade/HBoxContainer"]
@@ -415,6 +427,17 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_toegg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_4qahf")
 icon = ExtResource("6_ew13u")
 
+[node name="Label" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Sell"]
+texture_filter = 1
+offset_left = -0.461537
+offset_top = 18.7692
+offset_right = 63.5385
+offset_bottom = 41.7692
+scale = Vector2(0.3, 0.3)
+text = "+5
+"
+horizontal_alignment = 1
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="body_shape_entered" from="Tower" to="." method="_on_tower_body_shape_entered_tower3"]
 [connection signal="body_shape_exited" from="Tower" to="." method="_on_tower_body_shape_exited_tower3"]
@@ -422,3 +445,4 @@ icon = ExtResource("6_ew13u")
 [connection signal="pressed" from="Upgrade/Upgrade/HBoxContainer/Range" to="." method="_on_range_pressed"]
 [connection signal="pressed" from="Upgrade/Upgrade/HBoxContainer/AttackSpeed" to="." method="_on_attack_speed_pressed"]
 [connection signal="pressed" from="Upgrade/Upgrade/HBoxContainer/Power" to="." method="_on_power_pressed"]
+[connection signal="pressed" from="Upgrade/Upgrade/HBoxContainer/Sell" to="." method="_on_sell_pressed"]

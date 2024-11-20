@@ -14,6 +14,11 @@ config/name="Nuevo Proyecto de Juego"
 run/main_scene="res://Escenas/UI/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
+[autoload]
+
+Game="*res://Scripts/Game.gd"
+GlobalAudioStreamPlayer="*res://Scripts/audio_stream_player.gd"
+
 [display]
 
 window/size/viewport_width=840

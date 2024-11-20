@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqlpg5b8wp7ea"]
+[gd_scene load_steps=10 format=3 uid="uid://cqlpg5b8wp7ea"]
 
 [ext_resource type="PackedScene" uid="uid://b5bfereeq27vv" path="res://Escenas/UI/panel_squirtle.tscn" id="1_j4tvk"]
 [ext_resource type="Texture2D" uid="uid://c57lsgef2ha7s" path="res://Assets/UI/Captura de pantalla 2024-11-11 174847.png" id="2_eknu0"]
 [ext_resource type="PackedScene" uid="uid://jjv55ns52b8p" path="res://Escenas/UI/panel_bulba.tscn" id="3_gel8m"]
 [ext_resource type="PackedScene" uid="uid://b0u2c40os52wh" path="res://Escenas/UI/panel_charmander.tscn" id="3_i8bm4"]
+[ext_resource type="Script" path="res://Scripts/health.gd" id="5_srbuh"]
+[ext_resource type="Script" path="res://Scripts/gold.gd" id="6_2vs46"]
+[ext_resource type="Texture2D" uid="uid://cfpg2r561an0g" path="res://Assets/UI/shield_02b.png" id="6_jqg0l"]
+[ext_resource type="Texture2D" uid="uid://4etoax14tr83" path="res://Assets/UI/coin_05d.png" id="7_2i641"]
+[ext_resource type="Script" path="res://Scripts/time_score.gd" id="9_jj2x1"]
 
 [node name="UI" type="CanvasLayer"]
 layer = 0
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Compras" type="Panel" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -21,32 +26,98 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="Panel Bulbasaur" parent="Panel" instance=ExtResource("3_gel8m")]
+[node name="Panel Bulbasaur" parent="Compras" instance=ExtResource("3_gel8m")]
 layout_mode = 0
 offset_left = 48.0
 offset_right = 96.0
 offset_bottom = 48.0
 
-[node name="Panel Squirtle" parent="Panel" instance=ExtResource("1_j4tvk")]
+[node name="Panel Squirtle" parent="Compras" instance=ExtResource("1_j4tvk")]
 layout_mode = 0
 offset_left = 96.0
 offset_right = 144.0
 offset_bottom = 48.0
 
-[node name="Panel Charmander" parent="Panel" instance=ExtResource("3_i8bm4")]
+[node name="Panel Charmander" parent="Compras" instance=ExtResource("3_i8bm4")]
 layout_mode = 0
 offset_left = 144.0
 offset_right = 194.0
 offset_bottom = 48.0
 
-[node name="UNDO" type="Panel" parent="Panel"]
+[node name="UNDO" type="Panel" parent="Compras"]
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel/UNDO"]
+[node name="Sprite2D" type="Sprite2D" parent="Compras/UNDO"]
 position = Vector2(23, 23)
 scale = Vector2(0.0785071, 0.0765766)
 texture = ExtResource("2_eknu0")
 
-[connection signal="gui_input" from="Panel" to="Panel" method="_on_gui_input"]
+[node name="Coin05d" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(80, 475)
+scale = Vector2(0.40625, 0.531253)
+texture = ExtResource("7_2i641")
+
+[node name="Coin05d2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(128, 475)
+scale = Vector2(0.40625, 0.531253)
+texture = ExtResource("7_2i641")
+
+[node name="Coin05d3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(176, 475)
+scale = Vector2(0.40625, 0.531253)
+texture = ExtResource("7_2i641")
+
+[node name="Vida_dinero" type="Panel" parent="."]
+offset_right = 125.0
+offset_bottom = 47.0
+
+[node name="health" type="Label" parent="Vida_dinero"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 16.0
+offset_right = 144.0
+offset_bottom = 23.0
+text = "Salud: "
+script = ExtResource("5_srbuh")
+
+[node name="Shield02b" type="Sprite2D" parent="Vida_dinero/health"]
+texture_filter = 1
+position = Vector2(-7, 12)
+texture = ExtResource("6_jqg0l")
+
+[node name="Gold" type="Label" parent="Vida_dinero"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 125.0
+offset_bottom = 47.0
+text = "Oro: "
+script = ExtResource("6_2vs46")
+
+[node name="Coin05d" type="Sprite2D" parent="Vida_dinero/Gold"]
+texture_filter = 1
+position = Vector2(-8, 11)
+scale = Vector2(0.851563, 0.941407)
+texture = ExtResource("7_2i641")
+
+[node name="Score" type="Panel" parent="."]
+offset_left = 678.0
+offset_top = 456.0
+offset_right = 856.0
+offset_bottom = 497.0
+
+[node name="TimeScore" type="Label" parent="Score"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 162.0
+offset_bottom = 23.0
+text = "Time score:"
+script = ExtResource("9_jj2x1")
+
+[connection signal="gui_input" from="Compras" to="Compras" method="_on_gui_input"]
