@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://j5cbfluqjvn1"]
+[gd_scene load_steps=36 format=3 uid="uid://j5cbfluqjvn1"]
 
 [ext_resource type="Script" path="res://Scripts/torre_3.gd" id="1_552m0"]
 [ext_resource type="Texture2D" uid="uid://k66mc5ejm412" path="res://Assets/Pokemon/torres/charmander.png" id="2_jitnc"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cqnbehna4vgh8" path="res://Assets/Pokemon/torres/MEGACharizard.png" id="5_bmx2d"]
 [ext_resource type="Texture2D" uid="uid://dgwyyr20rbp04" path="res://Assets/UI/sword_01b.png" id="5_wq6vc"]
 [ext_resource type="Texture2D" uid="uid://4etoax14tr83" path="res://Assets/UI/coin_05d.png" id="6_ew13u"]
+[ext_resource type="Texture2D" uid="uid://b8fjsqk2so8tr" path="res://Assets/UI/pearl_01d.png" id="10_6478p"]
+[ext_resource type="Texture2D" uid="uid://o2rme201uoej" path="res://Assets/UI/pearl_01a.png" id="11_duvqf"]
 
 [sub_resource type="Animation" id="Animation_k7rmb"]
 length = 0.001
@@ -240,6 +242,57 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvyua"]
+bg_color = Color(0, 0, 0, 0.439216)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 1, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_up2hw"]
+bg_color = Color(0, 0.196078, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 1, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qcdl7"]
+bg_color = Color(0, 1, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1.01075e-06, 0.536013, 5.77569e-07, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cktgs"]
+bg_color = Color(0.0941176, 0.941176, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.380392, 1, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [node name="Torre3" type="CharacterBody2D"]
 collision_mask = 0
 input_pickable = true
@@ -439,6 +492,48 @@ text = "+5
 "
 horizontal_alignment = 1
 
+[node name="Upgrade2" type="Panel" parent="Upgrade/Upgrade"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 69.2308
+offset_top = -16.9231
+offset_right = 93.2308
+offset_bottom = -3.92307
+scale = Vector2(1.3, 1.3)
+theme_override_styles/panel = SubResource("StyleBoxFlat_qvyua")
+
+[node name="tipo" type="Button" parent="Upgrade/Upgrade/Upgrade2"]
+texture_filter = 1
+custom_minimum_size = Vector2(41, 41)
+layout_mode = 2
+offset_left = 2.95858
+offset_top = 1.77515
+offset_right = 43.9586
+offset_bottom = 42.7752
+scale = Vector2(0.2, 0.2)
+theme_override_styles/hover = SubResource("StyleBoxFlat_up2hw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qcdl7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cktgs")
+icon = ExtResource("10_6478p")
+icon_alignment = 1
+expand_icon = true
+
+[node name="normal" type="Button" parent="Upgrade/Upgrade/Upgrade2"]
+texture_filter = 1
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+offset_left = 13.0178
+offset_top = 2.36687
+offset_right = 54.0178
+offset_bottom = 43.3669
+scale = Vector2(0.2, 0.2)
+theme_override_styles/hover = SubResource("StyleBoxFlat_up2hw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qcdl7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cktgs")
+icon = ExtResource("11_duvqf")
+icon_alignment = 1
+expand_icon = true
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="body_shape_entered" from="Tower" to="." method="_on_tower_body_shape_entered_tower3"]
 [connection signal="body_shape_exited" from="Tower" to="." method="_on_tower_body_shape_exited_tower3"]
@@ -447,3 +542,5 @@ horizontal_alignment = 1
 [connection signal="pressed" from="Upgrade/Upgrade/HBoxContainer/AttackSpeed" to="." method="_on_attack_speed_pressed"]
 [connection signal="pressed" from="Upgrade/Upgrade/HBoxContainer/Power" to="." method="_on_power_pressed"]
 [connection signal="pressed" from="Upgrade/Upgrade/HBoxContainer/Sell" to="." method="_on_sell_pressed"]
+[connection signal="pressed" from="Upgrade/Upgrade/Upgrade2/tipo" to="." method="_on_tipo_pressed"]
+[connection signal="pressed" from="Upgrade/Upgrade/Upgrade2/normal" to="." method="_on_normal_pressed"]

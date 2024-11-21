@@ -28,7 +28,7 @@ metadata/_edit_horizontal_guides_ = [1080.0]
 
 [node name="mundo" parent="." instance=ExtResource("1_v6wcu")]
 
-[node name="Torres" type="Node" parent="."]
+[node name="Torres" type="Node2D" parent="."]
 
 [node name="PathSpawner" type="Node2D" parent="."]
 script = ExtResource("4_hcd0g")
@@ -36,21 +36,26 @@ script = ExtResource("4_hcd0g")
 [node name="Score" type="Timer" parent="PathSpawner"]
 autostart = true
 
-[node name="3s" type="Timer" parent="PathSpawner"]
+[node name="5s" type="Timer" parent="PathSpawner"]
 wait_time = 5.0
-autostart = true
-
-[node name="4s" type="Timer" parent="PathSpawner"]
-wait_time = 5.0
-
-[node name="10s" type="Timer" parent="PathSpawner"]
-wait_time = 10.0
 autostart = true
 
 [node name="Check" type="Timer" parent="PathSpawner"]
 wait_time = 0.1
 
+[node name="Timer" type="Timer" parent="PathSpawner"]
+wait_time = 3.0
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_mdiwo")
+volume_db = -33.293
+autoplay = true
+parameters/looping = true
+script = ExtResource("11_et8ye")
+
 [node name="PAUSE" type="Panel" parent="."]
+visible = false
 offset_left = -32.0
 offset_top = -32.0
 offset_right = 904.0
@@ -121,17 +126,10 @@ label_settings = SubResource("LabelSettings_s32lu")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_mdiwo")
-volume_db = -33.293
-autoplay = true
-parameters/looping = true
-script = ExtResource("11_et8ye")
-
 [connection signal="timeout" from="PathSpawner/Score" to="PathSpawner" method="_on_cronómetro_timeout"]
-[connection signal="timeout" from="PathSpawner/3s" to="PathSpawner" method="_on_3s_timeout"]
-[connection signal="timeout" from="PathSpawner/4s" to="PathSpawner" method="_on_4s_timeout"]
+[connection signal="timeout" from="PathSpawner/5s" to="PathSpawner" method="_on_5s_timeout"]
 [connection signal="timeout" from="PathSpawner/Check" to="PathSpawner" method="_on_check_timeout"]
+[connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_3s_timeout"]
 [connection signal="pressed" from="PAUSE/window" to="PAUSE/window" method="_on_pressed"]
 [connection signal="drag_ended" from="PAUSE/HSlider" to="PAUSE/HSlider" method="_on_drag_ended"]
 [connection signal="value_changed" from="PAUSE/HSlider" to="PAUSE/HSlider" method="_on_value_changed"]

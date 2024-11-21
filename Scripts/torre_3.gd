@@ -6,6 +6,10 @@ var pathName
 var currTargets = []
 var curr
 var maxed = 0
+var maxCad = 0
+var maxRang = 0
+var maxPow = 0
+var focus = "normal"
 
 func _process(delta: float) -> void:
 	if (maxed == 1):
@@ -31,15 +35,14 @@ func _ready() -> void:
 	self.get_child(1).get_child(0).play("idle")
 	$Cadencia.start()
 
+
 func _on_tower_body_shape_entered_tower3(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body.name.contains("Enemigo"):
 		var tempArray = []
 		currTargets = get_node("Tower").get_overlapping_bodies()
-		
 		for i in currTargets:
-			if ("Enemigo" in i.name) and (("planta" in i.tipo)or(i.tipo == "normal")):
+			if ("Enemigo" in i.name) and (("planta" in i.tipo)or(i.tipo == self.focus)):
 				tempArray.append(i)
-				
 				
 		var currTarget = null
 		
@@ -68,19 +71,13 @@ func _on_cadencia_timeout_torre3() -> void:
 		tempBullet.global_position = $Aim.global_position
 		curr.leafsFollowing.append(tempBullet)
 		
-	elif currTargets !=null:
-		curr = currTargets.front()
-			
-
 
 func _on_tower_body_shape_exited_tower3(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	var tempArray = []
 	currTargets = get_node("Tower").get_overlapping_bodies()
-	
 	for i in currTargets:
-		if ("Enemigo" in i.name) and (("planta" in i.tipo)or(i.tipo == "normal")):
+		if ("Enemigo" in i.name) and (("planta" in i.tipo)or(i.tipo == focus)):
 			tempArray.append(i)
-			
 			
 	var currTarget = null
 	
@@ -111,27 +108,27 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 
 func _on_range_pressed() -> void:
-	if $Tower/CollisionShape2D.scale != Vector2(13,13):
+	if $Tower/CollisionShape2D.scale < Vector2(14,14):
 		if Game.gold >= 10:
 			Game.gold -= 10
-			$Tower/CollisionShape2D.scale = $Tower/CollisionShape2D.scale + Vector2(1,1)
+			$Tower/CollisionShape2D.scale = $Tower/CollisionShape2D.scale + Vector2(2,2)
 	else:
 		$Upgrade/Upgrade/HBoxContainer/Range.disabled = true
 		maxed = maxed + 1
+		self.get_child(maxed+1).get_child(0).play("idle")
 		
-
 
 func _on_attack_speed_pressed() -> void:
-	if $Cadencia.wait_time > 0.5:
-		if Game.gold >= 10:
-			Game.gold -= 10
-			$Cadencia.wait_time = $Cadencia.wait_time - 0.20
-	else:
-		$Upgrade/Upgrade/HBoxContainer/AttackSpeed.disabled = true
-		maxed = maxed + 1
+	if $Cadencia.wait_time >= 0.5:
+			if Game.gold >= 10:
+				Game.gold -= 10
+				$Cadencia.wait_time = $Cadencia.wait_time - 0.20
+				maxCad += 1
+			if maxCad == 5:
+				$Upgrade/Upgrade/HBoxContainer/AttackSpeed.disabled = true
+				maxed = maxed + 1
+				self.get_child(maxed+1).get_child(0).play("idle")
 		
-
-
 func _on_power_pressed() -> void:
 	if bulletDamage < 5:
 		if Game.gold >= 10:
@@ -140,8 +137,21 @@ func _on_power_pressed() -> void:
 	else:
 		$Upgrade/Upgrade/HBoxContainer/Power.disabled = true
 		maxed = maxed + 1
+		self.get_child(maxed+1).get_child(0).play("idle")
 
 
 func _on_sell_pressed() -> void:
 	Game.gold += 5
 	queue_free()
+
+
+func _on_tipo_pressed() -> void:
+	focus = "planta"
+	$Upgrade/Upgrade/Upgrade2/tipo.disabled = true
+	$Upgrade/Upgrade/Upgrade2/normal.disabled = false
+
+
+func _on_normal_pressed() -> void:
+	focus = "normal"
+	$Upgrade/Upgrade/Upgrade2/tipo.disabled = false
+	$Upgrade/Upgrade/Upgrade2/normal.disabled = true

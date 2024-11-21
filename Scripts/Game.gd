@@ -1,7 +1,7 @@
 extends Node
 
 var health = 100
-var gold = 30
+var gold = 1000
 var timescore = 0
 var username
 @onready var music = $AudioStreamPlayer

@@ -8,7 +8,8 @@ func _input(event):
 			$PAUSE.visible = true
 			for i in $PathSpawner.get_children():
 				if str(i).contains("Path"):
-					i.get_child(0).get_child(0).speed = 0
+					if i.get_child(0).get_child(0) != null:
+						i.get_child(0).get_child(0).speed = 0
 				if str(i).contains("Timer"):
 					i.stop()
 			for i in $Torres.get_children():
@@ -18,12 +19,13 @@ func _input(event):
 			$PAUSE.visible = false
 			for i in $PathSpawner.get_children():
 				if str(i).contains("Path"):
-					if i.get_child(0).get_child(0).name.contains("1_1"):
-						i.get_child(0).get_child(0).speed = 40
-					if i.get_child(0).get_child(0).name.contains("1_2"):
-						i.get_child(0).get_child(0).speed = 50
-					if i.get_child(0).get_child(0).name.contains("tank"):
-						i.get_child(0).get_child(0).speed = 20
+					if i.get_child(0).get_child(0) != null:
+						if i.get_child(0).get_child(0).name.contains("1_1"):
+							i.get_child(0).get_child(0).speed = 40
+						if i.get_child(0).get_child(0).name.contains("1_2"):
+							i.get_child(0).get_child(0).speed = 50
+						if i.get_child(0).get_child(0).name.contains("tank"):
+							i.get_child(0).get_child(0).speed = 20
 				
 				if str(i).contains("Timer"):
 					i.start(i.time_left)
