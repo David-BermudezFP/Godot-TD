@@ -111,9 +111,11 @@ func _on_range_pressed() -> void:
 		if Game.gold >= 10:
 			Game.gold -= 10
 			$Tower/CollisionShape2D.scale = $Tower/CollisionShape2D.scale + Vector2(2,2)
+			maxRang += 1
 	else:
 		$Upgrade/Upgrade/HBoxContainer/Range.disabled = true
 		maxed = maxed + 1
+		maxRang += 1
 		self.get_child(maxed+1).get_child(0).play("idle")
 
 
@@ -134,14 +136,23 @@ func _on_power_pressed() -> void:
 		if Game.gold >= 10:
 			Game.gold -= 10
 			bulletDamage = bulletDamage + 1
+			maxPow +=1
 	else:
 		$Upgrade/Upgrade/HBoxContainer/Power.disabled = true
 		maxed = maxed + 1
+		maxPow +=1
 		self.get_child(maxed+1).get_child(0).play("idle")
 
 
 func _on_sell_pressed() -> void:
-	Game.gold += 5
+	if maxed == 0:
+		Game.gold += 5
+	elif  maxed == 1:
+		Game.gold += 25
+	elif  maxed == 2:
+		Game.gold += 50
+	elif  maxed == 3:
+		Game.gold += 75
 	queue_free()
 
 

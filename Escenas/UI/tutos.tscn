@@ -1,12 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6j6gcmyiugjt"]
+[gd_scene load_steps=19 format=3 uid="uid://b6j6gcmyiugjt"]
 
 [ext_resource type="Texture2D" uid="uid://cb7tmdlt7d1te" path="res://Assets/UI/Titulo.png" id="1_2byp2"]
 [ext_resource type="VideoStream" path="res://Assets/Pokemon/torres/videos/bulba.ogv" id="2_5mqix"]
 [ext_resource type="VideoStream" path="res://Assets/Pokemon/torres/videos/squirt.ogv" id="2_mbv8v"]
 [ext_resource type="PackedScene" uid="uid://txo2gifpv3r5" path="res://Escenas/mundo.tscn" id="3_j888x"]
 [ext_resource type="VideoStream" path="res://Assets/Pokemon/torres/videos/char.ogv" id="4_ib4nn"]
+[ext_resource type="Texture2D" uid="uid://d0nux0agmj1vx" path="res://Assets/UI/tuto2.png" id="5_hsbfw"]
 [ext_resource type="Texture2D" uid="uid://kajuhfu6xm3p" path="res://Assets/UI/volver.png" id="6_68tdt"]
+[ext_resource type="Texture2D" uid="uid://dgwyyr20rbp04" path="res://Assets/UI/sword_01b.png" id="6_ftutu"]
 [ext_resource type="Script" path="res://Scripts/volver.gd" id="7_k1tf6"]
+[ext_resource type="Texture2D" uid="uid://c40g7pga5fr3k" path="res://Assets/UI/bow_03d.png" id="7_xcbvw"]
+[ext_resource type="Texture2D" uid="uid://lysqel481vsh" path="res://Assets/UI/arrow_02e.png" id="8_b0id7"]
+[ext_resource type="Texture2D" uid="uid://4etoax14tr83" path="res://Assets/UI/coin_05d.png" id="9_645m6"]
+[ext_resource type="Texture2D" uid="uid://btwft0vi7wk13" path="res://Assets/UI/pearl_01b.png" id="10_mm08r"]
+[ext_resource type="Texture2D" uid="uid://ckfjdip518jt0" path="res://Assets/UI/pearl_01c.png" id="11_kwx1s"]
+[ext_resource type="Texture2D" uid="uid://b8fjsqk2so8tr" path="res://Assets/UI/pearl_01d.png" id="12_flpi0"]
+[ext_resource type="Texture2D" uid="uid://o2rme201uoej" path="res://Assets/UI/pearl_01a.png" id="13_nsn3i"]
+[ext_resource type="Texture2D" uid="uid://cntep2e82mbsx" path="res://Assets/UI/next.png" id="17_jdiup"]
+[ext_resource type="Script" path="res://Scripts/next.gd" id="18_oo3st"]
 
 [node name="Tutos" type="Node2D"]
 
@@ -16,51 +27,51 @@ offset_top = 32.0
 offset_right = 824.0
 offset_bottom = 448.0
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 232.0
-offset_top = 40.0
-offset_right = 640.0
-offset_bottom = 160.0
-texture = ExtResource("1_2byp2")
-
-[node name="Planta" type="VideoStreamPlayer" parent="."]
-offset_left = 40.0
-offset_top = 168.0
-offset_right = 1320.0
-offset_bottom = 888.0
+[node name="Planta" type="VideoStreamPlayer" parent="Panel"]
+offset_left = 16.0
+offset_top = 136.0
+offset_right = 1296.0
+offset_bottom = 856.0
 scale = Vector2(0.15, 0.15)
 stream = ExtResource("2_5mqix")
 volume_db = -80.0
 autoplay = true
 loop = true
 
-[node name="Agua" type="VideoStreamPlayer" parent="."]
-offset_left = 328.0
-offset_top = 168.0
-offset_right = 1608.0
-offset_bottom = 888.0
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+offset_left = 208.0
+offset_top = 8.0
+offset_right = 616.0
+offset_bottom = 128.0
+texture = ExtResource("1_2byp2")
+
+[node name="Agua" type="VideoStreamPlayer" parent="Panel"]
+offset_left = 304.0
+offset_top = 136.0
+offset_right = 1584.0
+offset_bottom = 856.0
 scale = Vector2(0.15, 0.15)
 stream = ExtResource("2_mbv8v")
 volume_db = -80.0
 autoplay = true
 loop = true
 
-[node name="Fuego" type="VideoStreamPlayer" parent="."]
-offset_left = 616.0
-offset_top = 168.0
-offset_right = 1896.0
-offset_bottom = 888.0
+[node name="Fuego" type="VideoStreamPlayer" parent="Panel"]
+offset_left = 592.0
+offset_top = 136.0
+offset_right = 1872.0
+offset_bottom = 856.0
 scale = Vector2(0.15, 0.15)
 stream = ExtResource("4_ib4nn")
 volume_db = -80.0
 autoplay = true
 loop = true
 
-[node name="Label" type="Label" parent="."]
-offset_left = 64.0
-offset_top = 288.0
-offset_right = 784.0
-offset_bottom = 360.0
+[node name="Label" type="Label" parent="Panel"]
+offset_left = 40.0
+offset_top = 256.0
+offset_right = 760.0
+offset_bottom = 409.0
 text = "      Planta -> Agua                                         Agua -> Fuego                                           Fuego -> Planta
 
 Existen 3 tipos de torres para 3 mismos tipos de enemigos que solo serán atacados por las 
@@ -68,15 +79,150 @@ torres del tipo que las oponga.
 También existen los enemigos de tipo normal que serán atacados po cualquier torre.
 Cada torre costará 10 de oro igual que sus mejoras en Rango, Vel.ataque y Daño"
 
+[node name="Panel2" type="Panel" parent="."]
+visible = false
+offset_left = 24.0
+offset_top = 32.0
+offset_right = 824.0
+offset_bottom = 448.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel2"]
+offset_left = 208.0
+offset_top = 8.0
+offset_right = 616.0
+offset_bottom = 128.0
+texture = ExtResource("1_2byp2")
+
+[node name="Tuto2" type="Sprite2D" parent="Panel2"]
+texture_filter = 1
+position = Vector2(384, 200)
+scale = Vector2(0.42674, 0.411111)
+texture = ExtResource("5_hsbfw")
+
+[node name="Sword01b" type="Sprite2D" parent="Panel2"]
+texture_filter = 1
+position = Vector2(344, 304)
+scale = Vector2(2, 2)
+texture = ExtResource("6_ftutu")
+
+[node name="Bow03d" type="Sprite2D" parent="Panel2"]
+texture_filter = 1
+position = Vector2(88, 304)
+scale = Vector2(2, 2)
+texture = ExtResource("7_xcbvw")
+
+[node name="Arrow02e" type="Sprite2D" parent="Panel2"]
+texture_filter = 1
+position = Vector2(88, 368)
+scale = Vector2(2, 2)
+texture = ExtResource("8_b0id7")
+
+[node name="Coin05d" type="Sprite2D" parent="Panel2"]
+texture_filter = 1
+position = Vector2(344, 368)
+scale = Vector2(2, 2)
+texture = ExtResource("9_645m6")
+
+[node name="Pearl01b" type="Sprite2D" parent="Panel2"]
+texture_filter = 1
+position = Vector2(544, 184)
+texture = ExtResource("10_mm08r")
+metadata/_edit_group_ = true
+
+[node name="Pearl01c" type="Sprite2D" parent="Panel2/Pearl01b"]
+texture_filter = 1
+position = Vector2(16, -8)
+texture = ExtResource("11_kwx1s")
+
+[node name="Pearl01d" type="Sprite2D" parent="Panel2/Pearl01b"]
+texture_filter = 1
+position = Vector2(0, -16)
+texture = ExtResource("12_flpi0")
+
+[node name="Pearl01a" type="Sprite2D" parent="Panel2"]
+texture_filter = 1
+position = Vector2(544, 304)
+scale = Vector2(2, 2)
+texture = ExtResource("13_nsn3i")
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 152.0
+offset_right = 264.0
+offset_bottom = 253.0
+text = "Al hacer clic sobre una de
+tus torres se abrirá el menú
+de Mejora/Venta 
+								"
+
+[node name="Label2" type="Label" parent="Panel2"]
+offset_left = 112.0
+offset_top = 296.0
+offset_right = 247.0
+offset_bottom = 320.0
+text = "Mejora el alcance	"
+
+[node name="Label3" type="Label" parent="Panel2"]
+offset_left = 112.0
+offset_top = 360.0
+offset_right = 257.0
+offset_bottom = 383.0
+text = "Mejora la cadencia"
+
+[node name="Label4" type="Label" parent="Panel2"]
+offset_left = 360.0
+offset_top = 296.0
+offset_right = 476.0
+offset_bottom = 320.0
+text = "Mejora el daño	"
+
+[node name="Label5" type="Label" parent="Panel2"]
+offset_left = 368.0
+offset_top = 360.0
+offset_right = 480.0
+offset_bottom = 384.0
+text = "Vende la torre"
+
+[node name="Label6" type="Label" parent="Panel2"]
+offset_left = 568.0
+offset_top = 152.0
+offset_right = 799.0
+offset_bottom = 201.0
+text = "Selecciona como objetivo 
+solo a los pokemon del tipo
+contra el que es efectiva
+la torre"
+
+[node name="Label7" type="Label" parent="Panel2"]
+offset_left = 568.0
+offset_top = 288.0
+offset_right = 803.0
+offset_bottom = 337.0
+text = "Selecciona como objetivo 
+a los  pokemon contra los
+que es efectiva la torre y
+los de tipo normal"
+
 [node name="mundo" parent="." instance=ExtResource("3_j888x")]
 
-[node name="Button" type="Button" parent="."]
-offset_left = 688.0
+[node name="volver" type="Button" parent="."]
+offset_left = 48.0
 offset_top = 48.0
-offset_right = 808.0
+offset_right = 168.0
 offset_bottom = 120.0
 icon = ExtResource("6_68tdt")
 expand_icon = true
 script = ExtResource("7_k1tf6")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[node name="next" type="Button" parent="."]
+offset_left = 680.0
+offset_top = 48.0
+offset_right = 800.0
+offset_bottom = 120.0
+icon = ExtResource("17_jdiup")
+expand_icon = true
+script = ExtResource("18_oo3st")
+
+[connection signal="pressed" from="volver" to="volver" method="_on_pressed"]
+[connection signal="pressed" from="next" to="next" method="_on_pressed"]

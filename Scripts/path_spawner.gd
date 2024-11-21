@@ -20,7 +20,7 @@ var snorlax = preload("res://Escenas/Stages/Stage_normal_Snorlax.tscn")
 
 func _on_5s_timeout() -> void:
 	
-	#Ronda 1:
+	#Ronda 1: 60s
 	if Game.timescore <= 15:
 		spawn_rattata()
 	if Game.timescore > 15 and Game.timescore <= 30:
@@ -30,7 +30,7 @@ func _on_5s_timeout() -> void:
 	if Game.timescore > 45 and Game.timescore <= 60:
 		spawn_shroomish()
 	
-	#Ronda 2:
+	#Ronda 2: 120s
 	if Game.timescore > 60 and Game.timescore <= 80:
 		spawn_rattata()
 		spawn_psyduck()
@@ -50,7 +50,7 @@ func _on_5s_timeout() -> void:
 		spawn_shroomish()
 		spawn_psyduck()
 		
-	#Ronda 3:
+	#Ronda 3: 180s
 	if Game.timescore > 180 and Game.timescore <= 240:
 		spawn_raticate()
 	if Game.timescore > 240 and Game.timescore <= 260:
@@ -71,9 +71,80 @@ func _on_5s_timeout() -> void:
 		spawn_psyduck()
 		spawn_growlite()
 		spawn_raticate()
-	
+		
+		
+	#Ronda 4: 180s
+	if Game.timescore > 360 and Game.timescore <= 420:
+		spawn_shroomish()
+		spawn_golduck()
+		spawn_growlite()
+		spawn_raticate()
+	if Game.timescore > 420 and Game.timescore <= 480:
+		spawn_breloom()
+		spawn_golduck()
+		spawn_growlite()
+		spawn_raticate()
+	if Game.timescore > 480 and Game.timescore <= 800:
+		spawn_breloom()
+		spawn_golduck()
+		spawn_arcanine()
+		spawn_raticate()
+	# PARADA A LOS 800 SALEN TANKES
 
 
+
+#Desde la ronda 5 en adelante
+func _on_3s_timeout() -> void:
+	#Ronda 5.1
+	if Game.timescore > 500 and Game.timescore <= 615:
+		spawn_rattata()
+	if Game.timescore > 615 and Game.timescore <= 630:
+		spawn_shroomish()
+	if Game.timescore > 630 and Game.timescore <= 645:
+		spawn_psyduck()
+	if Game.timescore > 660 and Game.timescore <= 675:
+		spawn_growlite()
+		
+	#Ronda 5.2
+	if Game.timescore > 675 and Game.timescore <= 690:
+		spawn_rattata()
+		spawn_psyduck()
+		spawn_growlite()
+	if Game.timescore > 705 and Game.timescore <= 720:
+		spawn_growlite()
+		spawn_rattata()
+		spawn_shroomish()
+	if Game.timescore > 720 and Game.timescore <= 735:
+		spawn_rattata()
+		spawn_shroomish()
+		spawn_psyduck()
+	if Game.timescore > 735 and Game.timescore <= 750:
+		spawn_growlite()
+		spawn_shroomish()
+		spawn_psyduck()
+	if Game.timescore > 750 and Game.timescore <= 765:
+		spawn_growlite()
+		spawn_rattata()
+		spawn_shroomish()
+	if Game.timescore > 765 and Game.timescore <= 800:
+		spawn_shroomish()
+		spawn_psyduck()
+		spawn_growlite()
+		spawn_rattata()
+	# PARADA A LOS 800 SALEN TANKES
+
+func _on_10s_timeout() -> void:
+	if Game.timescore > 800 and Game.timescore <= 830:
+		spawn_snorlax()
+	# 20 SEGUNDOS DE PASO
+	if Game.timescore > 850 and Game.timescore <= 880:
+		spawn_exeggcutor()
+	# 20 SEGUNDOS DE PASO
+	if Game.timescore > 900 and Game.timescore <= 930:
+		spawn_camerupt()
+	# 20 SEGUNDOS DE PASO
+	if Game.timescore > 950 and Game.timescore <= 1000:
+		spawn_wailord()
 
 func spawn_rattata():
 	var rattata_instance = rattata.instantiate()
@@ -106,7 +177,24 @@ func spawn_breloom():
 func spawn_golduck():
 	var golduck_instance = golduck.instantiate()
 	add_child(golduck_instance)
+	
+func spawn_wailord():
+	var wailord_instance = wailord.instantiate()
+	add_child(wailord_instance)
+	
+func spawn_camerupt():
+	var camerupt_instance = camerupt.instantiate()
+	add_child(camerupt_instance)
 
+func spawn_snorlax():
+	var snorlax_instance = snorlax.instantiate()
+	add_child(snorlax_instance)
+
+func spawn_exeggcutor():
+	var exeggcutor_instance = exeggcutor.instantiate()
+	add_child(exeggcutor_instance)
+	
+	
 func _on_check_timeout() -> void:
 	if $".".get_children() != null:
 		for i in $".".get_children():
@@ -116,8 +204,3 @@ func _on_check_timeout() -> void:
 
 func _on_cronómetro_timeout() -> void:
 	Game.increase_score(1)
-
-
-func _on_3s_timeout() -> void:
-	spawn_rattata()
-	spawn_growlite()

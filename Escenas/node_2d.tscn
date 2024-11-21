@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bxue250cok4ke"]
+[gd_scene load_steps=16 format=3 uid="uid://bxue250cok4ke"]
 
 [ext_resource type="Script" path="res://Scripts/node_2d.gd" id="1_t3glc"]
 [ext_resource type="PackedScene" uid="uid://txo2gifpv3r5" path="res://Escenas/mundo.tscn" id="1_v6wcu"]
@@ -11,13 +11,12 @@
 [ext_resource type="Script" path="res://Scripts/h_slider.gd" id="9_sdo6o"]
 [ext_resource type="AudioStream" uid="uid://csqaf68vvwe8i" path="res://Assets/Musica/Godot_music_Loop.mp3" id="10_mdiwo"]
 [ext_resource type="Script" path="res://Scripts/audio_stream_player.gd" id="11_et8ye"]
+[ext_resource type="Texture2D" uid="uid://bnye5fi0ybu01" path="res://Assets/UI/volumen.png" id="12_rjaae"]
+[ext_resource type="Texture2D" uid="uid://kajuhfu6xm3p" path="res://Assets/UI/volver.png" id="13_r1lie"]
+[ext_resource type="Script" path="res://Scripts/volver.gd" id="14_s05d5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wfyok"]
 font_size = 73
-
-[sub_resource type="LabelSettings" id="LabelSettings_s32lu"]
-line_spacing = 5.0
-font_size = 20
 
 [node name="main" type="Node2D"]
 texture_filter = 1
@@ -40,12 +39,14 @@ autostart = true
 wait_time = 5.0
 autostart = true
 
+[node name="3s" type="Timer" parent="PathSpawner"]
+wait_time = 3.0
+autostart = true
+
 [node name="Check" type="Timer" parent="PathSpawner"]
 wait_time = 0.1
 
-[node name="Timer" type="Timer" parent="PathSpawner"]
-wait_time = 3.0
-autostart = true
+[node name="10s" type="Timer" parent="PathSpawner"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_mdiwo")
@@ -100,36 +101,44 @@ texture = ExtResource("7_x4mwo")
 expand_mode = 1
 
 [node name="Pause" type="Sprite2D" parent="PAUSE"]
-position = Vector2(472, 248)
+texture_filter = 1
+position = Vector2(470, 119)
 scale = Vector2(1.16854, 1.16505)
 texture = ExtResource("8_o0wcf")
 
 [node name="HSlider" type="HSlider" parent="PAUSE"]
 layout_mode = 0
-offset_left = 272.0
-offset_top = 112.0
-offset_right = 688.0
-offset_bottom = 128.0
+offset_left = 269.0
+offset_top = 330.0
+offset_right = 685.0
+offset_bottom = 346.0
 min_value = -80.0
 max_value = 0.0
 value = -34.0
 script = ExtResource("9_sdo6o")
 
-[node name="Label2" type="Label" parent="PAUSE"]
+[node name="Volumen" type="Sprite2D" parent="PAUSE"]
+position = Vector2(470, 291)
+scale = Vector2(0.460422, 0.517544)
+texture = ExtResource("12_rjaae")
+
+[node name="volver" type="Button" parent="PAUSE"]
+texture_filter = 1
 layout_mode = 0
-offset_left = 392.0
-offset_top = 72.0
-offset_right = 552.0
-offset_bottom = 112.0
-text = "Volumen"
-label_settings = SubResource("LabelSettings_s32lu")
-horizontal_alignment = 1
-uppercase = true
+offset_left = 728.0
+offset_top = 48.0
+offset_right = 848.0
+offset_bottom = 120.0
+icon = ExtResource("13_r1lie")
+expand_icon = true
+script = ExtResource("14_s05d5")
 
 [connection signal="timeout" from="PathSpawner/Score" to="PathSpawner" method="_on_cronómetro_timeout"]
 [connection signal="timeout" from="PathSpawner/5s" to="PathSpawner" method="_on_5s_timeout"]
+[connection signal="timeout" from="PathSpawner/3s" to="PathSpawner" method="_on_3s_timeout"]
 [connection signal="timeout" from="PathSpawner/Check" to="PathSpawner" method="_on_check_timeout"]
-[connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_3s_timeout"]
+[connection signal="timeout" from="PathSpawner/10s" to="PathSpawner" method="_on_10s_timeout"]
 [connection signal="pressed" from="PAUSE/window" to="PAUSE/window" method="_on_pressed"]
 [connection signal="drag_ended" from="PAUSE/HSlider" to="PAUSE/HSlider" method="_on_drag_ended"]
 [connection signal="value_changed" from="PAUSE/HSlider" to="PAUSE/HSlider" method="_on_value_changed"]
+[connection signal="pressed" from="PAUSE/volver" to="PAUSE/volver" method="_on_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://j5cbfluqjvn1"]
+[gd_scene load_steps=43 format=3 uid="uid://j5cbfluqjvn1"]
 
 [ext_resource type="Script" path="res://Scripts/torre_3.gd" id="1_552m0"]
 [ext_resource type="Texture2D" uid="uid://k66mc5ejm412" path="res://Assets/Pokemon/torres/charmander.png" id="2_jitnc"]
@@ -9,8 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://cqnbehna4vgh8" path="res://Assets/Pokemon/torres/MEGACharizard.png" id="5_bmx2d"]
 [ext_resource type="Texture2D" uid="uid://dgwyyr20rbp04" path="res://Assets/UI/sword_01b.png" id="5_wq6vc"]
 [ext_resource type="Texture2D" uid="uid://4etoax14tr83" path="res://Assets/UI/coin_05d.png" id="6_ew13u"]
-[ext_resource type="Texture2D" uid="uid://b8fjsqk2so8tr" path="res://Assets/UI/pearl_01d.png" id="10_6478p"]
+[ext_resource type="Script" path="res://Escenas/towers/MaxRang.gd" id="7_ylk16"]
+[ext_resource type="Script" path="res://Escenas/towers/MaxCad.gd" id="9_6se5b"]
+[ext_resource type="Script" path="res://Escenas/towers/MaxPow.gd" id="11_0vcpt"]
 [ext_resource type="Texture2D" uid="uid://o2rme201uoej" path="res://Assets/UI/pearl_01a.png" id="11_duvqf"]
+[ext_resource type="Texture2D" uid="uid://b8fjsqk2so8tr" path="res://Assets/UI/pearl_01d.png" id="13_kss68"]
+[ext_resource type="Script" path="res://Escenas/towers/sell.gd" id="13_ll3o3"]
 
 [sub_resource type="Animation" id="Animation_k7rmb"]
 length = 0.001
@@ -191,7 +195,7 @@ corner_radius_top_right = 90
 corner_radius_bottom_right = 90
 corner_radius_bottom_left = 90
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egrs1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_each0"]
 bg_color = Color(0, 0, 0, 0.439216)
 border_width_left = 2
 border_width_top = 2
@@ -204,7 +208,7 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fe4r2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_idq8d"]
 bg_color = Color(0, 0.196078, 1, 1)
 border_width_left = 2
 border_width_top = 2
@@ -217,7 +221,7 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_toegg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_no12y"]
 bg_color = Color(0, 1, 0, 1)
 border_width_left = 2
 border_width_top = 2
@@ -229,7 +233,7 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qahf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfkpj"]
 bg_color = Color(0.0941176, 0.941176, 1, 1)
 border_width_left = 2
 border_width_top = 2
@@ -242,7 +246,16 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvyua"]
+[sub_resource type="LabelSettings" id="LabelSettings_gwckv"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3580l"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jl87n"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e06lm"]
 bg_color = Color(0, 0, 0, 0.439216)
 border_width_left = 2
 border_width_top = 2
@@ -255,7 +268,7 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_up2hw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_437k5"]
 bg_color = Color(0, 0.196078, 1, 1)
 border_width_left = 2
 border_width_top = 2
@@ -268,7 +281,7 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qcdl7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rp1k"]
 bg_color = Color(0, 1, 0, 1)
 border_width_left = 2
 border_width_top = 2
@@ -280,7 +293,7 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cktgs"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdsn1"]
 bg_color = Color(0.0941176, 0.941176, 1, 1)
 border_width_left = 2
 border_width_top = 2
@@ -400,14 +413,17 @@ offset_top = 22.0
 offset_right = 35.0
 offset_bottom = 50.0
 scale = Vector2(1.3, 1.3)
-theme_override_styles/panel = SubResource("StyleBoxFlat_egrs1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_each0")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Upgrade/Upgrade"]
+custom_minimum_size = Vector2(0, 1)
+layout_direction = 1
 layout_mode = 0
-offset_left = 4.0
-offset_top = 2.0
-offset_right = 96.0
-offset_bottom = 22.0
+offset_left = -34.6154
+offset_top = 3.84615
+offset_right = 154.385
+offset_bottom = 23.8462
+scale = Vector2(0.9, 0.9)
 theme_override_constants/separation = 4
 alignment = 1
 
@@ -415,9 +431,9 @@ alignment = 1
 texture_filter = 1
 custom_minimum_size = Vector2(20, 2)
 layout_mode = 2
-theme_override_styles/hover = SubResource("StyleBoxFlat_fe4r2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_toegg")
-theme_override_styles/normal = SubResource("StyleBoxFlat_4qahf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_idq8d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_no12y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lfkpj")
 icon = ExtResource("3_qufat")
 icon_alignment = 1
 
@@ -429,17 +445,28 @@ offset_top = 18.7692
 offset_right = 63.8462
 offset_bottom = 41.7692
 scale = Vector2(0.3, 0.3)
-text = "10
-"
+text = "10"
 horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Range"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 10.6154
+offset_top = 0.307693
+offset_right = 46.6154
+offset_bottom = 23.3077
+scale = Vector2(0.3, 0.3)
+label_settings = SubResource("LabelSettings_gwckv")
+horizontal_alignment = 1
+script = ExtResource("7_ylk16")
 
 [node name="AttackSpeed" type="Button" parent="Upgrade/Upgrade/HBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(20, 2)
 layout_mode = 2
-theme_override_styles/hover = SubResource("StyleBoxFlat_fe4r2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_toegg")
-theme_override_styles/normal = SubResource("StyleBoxFlat_4qahf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_idq8d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_no12y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lfkpj")
 icon = ExtResource("4_7ued3")
 
 [node name="Label" type="Label" parent="Upgrade/Upgrade/HBoxContainer/AttackSpeed"]
@@ -453,12 +480,24 @@ scale = Vector2(0.3, 0.3)
 text = "10"
 horizontal_alignment = 1
 
+[node name="Label2" type="Label" parent="Upgrade/Upgrade/HBoxContainer/AttackSpeed"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 10.6154
+offset_top = 0.307693
+offset_right = 46.6154
+offset_bottom = 23.3077
+scale = Vector2(0.3, 0.3)
+label_settings = SubResource("LabelSettings_3580l")
+horizontal_alignment = 1
+script = ExtResource("9_6se5b")
+
 [node name="Power" type="Button" parent="Upgrade/Upgrade/HBoxContainer"]
 custom_minimum_size = Vector2(20, 2)
 layout_mode = 2
-theme_override_styles/hover = SubResource("StyleBoxFlat_fe4r2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_toegg")
-theme_override_styles/normal = SubResource("StyleBoxFlat_4qahf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_idq8d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_no12y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lfkpj")
 icon = ExtResource("5_wq6vc")
 
 [node name="Label" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Power"]
@@ -472,12 +511,24 @@ scale = Vector2(0.3, 0.3)
 text = "10"
 horizontal_alignment = 1
 
+[node name="Label2" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Power"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 10.6154
+offset_top = 0.307693
+offset_right = 46.6154
+offset_bottom = 23.3077
+scale = Vector2(0.3, 0.3)
+label_settings = SubResource("LabelSettings_jl87n")
+horizontal_alignment = 1
+script = ExtResource("11_0vcpt")
+
 [node name="Sell" type="Button" parent="Upgrade/Upgrade/HBoxContainer"]
 custom_minimum_size = Vector2(20, 2)
 layout_mode = 2
-theme_override_styles/hover = SubResource("StyleBoxFlat_fe4r2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_toegg")
-theme_override_styles/normal = SubResource("StyleBoxFlat_4qahf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_idq8d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_no12y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lfkpj")
 icon = ExtResource("6_ew13u")
 
 [node name="Label" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Sell"]
@@ -491,6 +542,7 @@ scale = Vector2(0.3, 0.3)
 text = "+5
 "
 horizontal_alignment = 1
+script = ExtResource("13_ll3o3")
 
 [node name="Upgrade2" type="Panel" parent="Upgrade/Upgrade"]
 texture_filter = 1
@@ -500,7 +552,7 @@ offset_top = -16.9231
 offset_right = 93.2308
 offset_bottom = -3.92307
 scale = Vector2(1.3, 1.3)
-theme_override_styles/panel = SubResource("StyleBoxFlat_qvyua")
+theme_override_styles/panel = SubResource("StyleBoxFlat_e06lm")
 
 [node name="tipo" type="Button" parent="Upgrade/Upgrade/Upgrade2"]
 texture_filter = 1
@@ -511,10 +563,10 @@ offset_top = 1.77515
 offset_right = 43.9586
 offset_bottom = 42.7752
 scale = Vector2(0.2, 0.2)
-theme_override_styles/hover = SubResource("StyleBoxFlat_up2hw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_qcdl7")
-theme_override_styles/normal = SubResource("StyleBoxFlat_cktgs")
-icon = ExtResource("10_6478p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_437k5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7rp1k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fdsn1")
+icon = ExtResource("13_kss68")
 icon_alignment = 1
 expand_icon = true
 
@@ -527,9 +579,9 @@ offset_top = 2.36687
 offset_right = 54.0178
 offset_bottom = 43.3669
 scale = Vector2(0.2, 0.2)
-theme_override_styles/hover = SubResource("StyleBoxFlat_up2hw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_qcdl7")
-theme_override_styles/normal = SubResource("StyleBoxFlat_cktgs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_437k5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7rp1k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fdsn1")
 icon = ExtResource("11_duvqf")
 icon_alignment = 1
 expand_icon = true

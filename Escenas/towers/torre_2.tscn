@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://d16jqmbm7r4al"]
+[gd_scene load_steps=39 format=3 uid="uid://d16jqmbm7r4al"]
 
 [ext_resource type="Script" path="res://Scripts/torre_2.gd" id="1_xy26o"]
 [ext_resource type="Texture2D" uid="uid://6bqx3wmirl00" path="res://Assets/Pokemon/torres/Squirtle.png" id="2_oecuw"]
@@ -9,8 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://bic1uqs1vj1w0" path="res://Assets/Pokemon/torres/MEGABlastoise.png" id="5_4ndv8"]
 [ext_resource type="Texture2D" uid="uid://dgwyyr20rbp04" path="res://Assets/UI/sword_01b.png" id="5_tg74i"]
 [ext_resource type="Texture2D" uid="uid://4etoax14tr83" path="res://Assets/UI/coin_05d.png" id="6_c5d1d"]
+[ext_resource type="Script" path="res://Escenas/towers/MaxRang.gd" id="7_eji2m"]
+[ext_resource type="Script" path="res://Escenas/towers/MaxCad.gd" id="9_7w6oo"]
 [ext_resource type="Texture2D" uid="uid://ckfjdip518jt0" path="res://Assets/UI/pearl_01c.png" id="10_hk2db"]
+[ext_resource type="Script" path="res://Escenas/towers/MaxPow.gd" id="11_60llv"]
 [ext_resource type="Texture2D" uid="uid://o2rme201uoej" path="res://Assets/UI/pearl_01a.png" id="11_xsoxw"]
+[ext_resource type="Script" path="res://Escenas/towers/sell.gd" id="13_bj5xh"]
 
 [sub_resource type="Animation" id="Animation_scffx"]
 length = 0.001
@@ -187,6 +191,15 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="LabelSettings" id="LabelSettings_t7cyw"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1mnw3"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cq5l7"]
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_speex"]
 bg_color = Color(0, 0, 0, 0.439216)
 border_width_left = 2
@@ -346,11 +359,14 @@ scale = Vector2(1.3, 1.3)
 theme_override_styles/panel = SubResource("StyleBoxFlat_m88ve")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Upgrade/Upgrade"]
+custom_minimum_size = Vector2(0, 1)
+layout_direction = 1
 layout_mode = 0
-offset_left = 4.0
-offset_top = 2.0
-offset_right = 96.0
-offset_bottom = 22.0
+offset_left = -34.6154
+offset_top = 3.84615
+offset_right = 154.385
+offset_bottom = 23.8462
+scale = Vector2(0.9, 0.9)
 theme_override_constants/separation = 4
 alignment = 1
 
@@ -375,6 +391,18 @@ scale = Vector2(0.3, 0.3)
 text = "10"
 horizontal_alignment = 1
 
+[node name="Label2" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Range"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 10.6154
+offset_top = 0.307693
+offset_right = 46.6154
+offset_bottom = 23.3077
+scale = Vector2(0.3, 0.3)
+label_settings = SubResource("LabelSettings_t7cyw")
+horizontal_alignment = 1
+script = ExtResource("7_eji2m")
+
 [node name="AttackSpeed" type="Button" parent="Upgrade/Upgrade/HBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(20, 2)
@@ -395,6 +423,18 @@ scale = Vector2(0.3, 0.3)
 text = "10"
 horizontal_alignment = 1
 
+[node name="Label2" type="Label" parent="Upgrade/Upgrade/HBoxContainer/AttackSpeed"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 10.6154
+offset_top = 0.307693
+offset_right = 46.6154
+offset_bottom = 23.3077
+scale = Vector2(0.3, 0.3)
+label_settings = SubResource("LabelSettings_1mnw3")
+horizontal_alignment = 1
+script = ExtResource("9_7w6oo")
+
 [node name="Power" type="Button" parent="Upgrade/Upgrade/HBoxContainer"]
 custom_minimum_size = Vector2(20, 2)
 layout_mode = 2
@@ -413,6 +453,18 @@ offset_bottom = 41.7692
 scale = Vector2(0.3, 0.3)
 text = "10"
 horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Power"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 10.6154
+offset_top = 0.307693
+offset_right = 46.6154
+offset_bottom = 23.3077
+scale = Vector2(0.3, 0.3)
+label_settings = SubResource("LabelSettings_cq5l7")
+horizontal_alignment = 1
+script = ExtResource("11_60llv")
 
 [node name="Sell" type="Button" parent="Upgrade/Upgrade/HBoxContainer"]
 custom_minimum_size = Vector2(20, 2)
@@ -433,6 +485,7 @@ scale = Vector2(0.3, 0.3)
 text = "+5
 "
 horizontal_alignment = 1
+script = ExtResource("13_bj5xh")
 
 [node name="Upgrade2" type="Panel" parent="Upgrade/Upgrade"]
 texture_filter = 1
