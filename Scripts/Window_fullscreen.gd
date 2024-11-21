@@ -17,6 +17,10 @@ func _on_pressed() -> void:
 	if DisplayServer.window_get_mode() == DisplayServer.WindowMode.WINDOW_MODE_WINDOWED:
 		# Cambia a pantalla completa
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN)
+		$win.visible = true
+		$full.visible = false
 	else:
 		# Cambia a modo ventana
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_WINDOWED)
+		$win.visible = false
+		$full.visible = true

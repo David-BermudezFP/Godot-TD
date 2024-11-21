@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://j4xdcny24ol8"]
+[gd_scene load_steps=12 format=3 uid="uid://j4xdcny24ol8"]
 
 [ext_resource type="PackedScene" uid="uid://txo2gifpv3r5" path="res://Escenas/mundo.tscn" id="1_bd4ma"]
 [ext_resource type="Texture2D" uid="uid://cb7tmdlt7d1te" path="res://Assets/UI/Titulo.png" id="2_66rvf"]
@@ -7,9 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dbt2gi11m4xm3" path="res://Assets/UI/play.png" id="4_qoo5g"]
 [ext_resource type="Texture2D" uid="uid://d3vhtpvcbbtky" path="res://Assets/UI/tuto.png" id="5_qsp63"]
 [ext_resource type="Script" path="res://Scripts/tuto.gd" id="5_qx7qs"]
-[ext_resource type="Texture2D" uid="uid://dqxawnsjbj8p1" path="res://Assets/UI/opciones.png" id="6_xxkye"]
-[ext_resource type="Script" path="res://Scripts/options.gd" id="7_x118m"]
+[ext_resource type="Script" path="res://Scripts/Window_fullscreen.gd" id="7_2icvd"]
+[ext_resource type="Texture2D" uid="uid://w38bo234c8cs" path="res://Assets/UI/Ventana.png" id="8_arp3a"]
 [ext_resource type="Texture2D" uid="uid://dc4dodcs0fer2" path="res://Assets/UI/quit.png" id="8_v6u0y"]
+[ext_resource type="Texture2D" uid="uid://be353xy8nqqxm" path="res://Assets/UI/Fullscreen.png" id="9_2gm3a"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -67,7 +68,7 @@ offset_bottom = 88.0
 texture = ExtResource("5_qsp63")
 expand_mode = 1
 
-[node name="options" type="Button" parent="Panel"]
+[node name="window" type="Button" parent="Panel"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 0
 offset_left = 184.0
@@ -75,15 +76,25 @@ offset_top = 280.0
 offset_right = 384.0
 offset_bottom = 380.0
 text = "OPTIONS"
-script = ExtResource("7_x118m")
+script = ExtResource("7_2icvd")
 
-[node name="TextureRect" type="TextureRect" parent="Panel/options"]
+[node name="win" type="TextureRect" parent="Panel/window"]
+visible = false
 layout_mode = 0
-offset_left = 16.0
-offset_top = 8.0
-offset_right = 184.0
-offset_bottom = 88.0
-texture = ExtResource("6_xxkye")
+offset_left = 12.0
+offset_top = 9.0
+offset_right = 186.0
+offset_bottom = 89.0
+texture = ExtResource("8_arp3a")
+expand_mode = 1
+
+[node name="full" type="TextureRect" parent="Panel/window"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 187.0
+offset_bottom = 84.0
+texture = ExtResource("9_2gm3a")
 expand_mode = 1
 
 [node name="quit" type="Button" parent="Panel"]
@@ -107,5 +118,5 @@ expand_mode = 1
 
 [connection signal="pressed" from="Panel/play" to="Panel/play" method="_on_pressed"]
 [connection signal="pressed" from="Panel/tuto" to="Panel/tuto" method="_on_pressed"]
-[connection signal="pressed" from="Panel/options" to="Panel/options" method="_on_pressed"]
+[connection signal="pressed" from="Panel/window" to="Panel/window" method="_on_pressed"]
 [connection signal="pressed" from="Panel/quit" to="Panel/quit" method="_on_pressed"]

@@ -23,6 +23,7 @@ var tempPath
 func _on_cronómetro_timeout() -> void:
 	Game.increase_score(1)
 
+
 func _on_3s_timeout() -> void:
 	add_child(psyduck.instantiate())
 	add_child(growlite.instantiate())
@@ -35,3 +36,11 @@ func _on_4s_timeout() -> void:
 
 func _on_10s_timeout() -> void:
 	pass
+
+
+func _on_check_timeout() -> void:
+	if $".".get_children() != null:
+		for i in $".".get_children():
+			if str(i).contains("Path"):
+				if i.get_child(0).get_child(0) == null:
+					i.queue_free()

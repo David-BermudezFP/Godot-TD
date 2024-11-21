@@ -1,8 +1,6 @@
-[gd_scene load_steps=12 format=4 uid="uid://txo2gifpv3r5"]
+[gd_scene load_steps=10 format=4 uid="uid://txo2gifpv3r5"]
 
 [ext_resource type="Texture2D" uid="uid://uj81r3mo5hyl" path="res://Assets/Mundo/topDown_baseTiles.png" id="1_xohfm"]
-[ext_resource type="AudioStream" uid="uid://csqaf68vvwe8i" path="res://Assets/Musica/Godot_music_Loop.mp3" id="2_ql7ax"]
-[ext_resource type="Script" path="res://Scripts/audio_stream_player.gd" id="3_agty1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_af6kh"]
 texture = ExtResource("1_xohfm")
@@ -2505,10 +2503,3 @@ tile_set = SubResource("TileSet_cls0e")
 build_mode = 1
 polygon = PackedVector2Array(936, 208, 848, 208, 848, 80, 936, 80, 936, 32, 848, 32, 848, 0, 576, 0, 576, -80, 528, -80, 528, 0, 400, 0, 400, -80, 352, -80, 352, 0, -1, -2, 0, 208, -128, 208, -128, 256, 0, 256, -1, 480, 849, 480, 848, 256, 936, 256)
 metadata/_edit_lock_ = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_ql7ax")
-volume_db = -26.255
-autoplay = true
-parameters/looping = true
-script = ExtResource("3_agty1")

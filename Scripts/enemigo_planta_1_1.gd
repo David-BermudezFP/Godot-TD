@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var tipo = "planta"
-@export var speed = 50
+@export var speed = 40
 var health = 3
 var leafsFollowing = []
 

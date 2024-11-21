@@ -429,6 +429,7 @@ icon = ExtResource("6_ew13u")
 
 [node name="Label" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Sell"]
 texture_filter = 1
+layout_mode = 0
 offset_left = -0.461537
 offset_top = 18.7692
 offset_right = 63.5385
