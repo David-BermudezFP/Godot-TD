@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b6j6gcmyiugjt"]
+[gd_scene load_steps=20 format=3 uid="uid://b6j6gcmyiugjt"]
 
 [ext_resource type="Texture2D" uid="uid://cb7tmdlt7d1te" path="res://Assets/UI/Titulo.png" id="1_2byp2"]
 [ext_resource type="VideoStream" path="res://Assets/Pokemon/torres/videos/bulba.ogv" id="2_5mqix"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://o2rme201uoej" path="res://Assets/UI/pearl_01a.png" id="13_nsn3i"]
 [ext_resource type="Texture2D" uid="uid://cntep2e82mbsx" path="res://Assets/UI/next.png" id="17_jdiup"]
 [ext_resource type="Script" path="res://Scripts/next.gd" id="18_oo3st"]
+[ext_resource type="AudioStream" uid="uid://dg5oyo5unibx2" path="res://Assets/Musica/tutos.mp3" id="19_lsqcc"]
 
 [node name="Tutos" type="Node2D"]
 
@@ -28,6 +29,7 @@ offset_right = 824.0
 offset_bottom = 448.0
 
 [node name="Planta" type="VideoStreamPlayer" parent="Panel"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 136.0
 offset_right = 1296.0
@@ -39,6 +41,7 @@ autoplay = true
 loop = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
 offset_left = 208.0
 offset_top = 8.0
 offset_right = 616.0
@@ -46,6 +49,7 @@ offset_bottom = 128.0
 texture = ExtResource("1_2byp2")
 
 [node name="Agua" type="VideoStreamPlayer" parent="Panel"]
+layout_mode = 0
 offset_left = 304.0
 offset_top = 136.0
 offset_right = 1584.0
@@ -57,6 +61,7 @@ autoplay = true
 loop = true
 
 [node name="Fuego" type="VideoStreamPlayer" parent="Panel"]
+layout_mode = 0
 offset_left = 592.0
 offset_top = 136.0
 offset_right = 1872.0
@@ -68,6 +73,7 @@ autoplay = true
 loop = true
 
 [node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 40.0
 offset_top = 256.0
 offset_right = 760.0
@@ -87,6 +93,7 @@ offset_right = 824.0
 offset_bottom = 448.0
 
 [node name="TextureRect" type="TextureRect" parent="Panel2"]
+layout_mode = 0
 offset_left = 208.0
 offset_top = 8.0
 offset_right = 616.0
@@ -157,6 +164,7 @@ de Mejora/Venta
 								"
 
 [node name="Label2" type="Label" parent="Panel2"]
+layout_mode = 0
 offset_left = 112.0
 offset_top = 296.0
 offset_right = 247.0
@@ -164,6 +172,7 @@ offset_bottom = 320.0
 text = "Mejora el alcance	"
 
 [node name="Label3" type="Label" parent="Panel2"]
+layout_mode = 0
 offset_left = 112.0
 offset_top = 360.0
 offset_right = 257.0
@@ -171,6 +180,7 @@ offset_bottom = 383.0
 text = "Mejora la cadencia"
 
 [node name="Label4" type="Label" parent="Panel2"]
+layout_mode = 0
 offset_left = 360.0
 offset_top = 296.0
 offset_right = 476.0
@@ -178,6 +188,7 @@ offset_bottom = 320.0
 text = "Mejora el daño	"
 
 [node name="Label5" type="Label" parent="Panel2"]
+layout_mode = 0
 offset_left = 368.0
 offset_top = 360.0
 offset_right = 480.0
@@ -185,6 +196,7 @@ offset_bottom = 384.0
 text = "Vende la torre"
 
 [node name="Label6" type="Label" parent="Panel2"]
+layout_mode = 0
 offset_left = 568.0
 offset_top = 152.0
 offset_right = 799.0
@@ -195,6 +207,7 @@ contra el que es efectiva
 la torre"
 
 [node name="Label7" type="Label" parent="Panel2"]
+layout_mode = 0
 offset_left = 568.0
 offset_top = 288.0
 offset_right = 803.0
@@ -223,6 +236,11 @@ offset_bottom = 120.0
 icon = ExtResource("17_jdiup")
 expand_icon = true
 script = ExtResource("18_oo3st")
+
+[node name="Tutos" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_lsqcc")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="pressed" from="volver" to="volver" method="_on_pressed"]
 [connection signal="pressed" from="next" to="next" method="_on_pressed"]

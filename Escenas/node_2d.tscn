@@ -43,12 +43,14 @@ autostart = true
 wait_time = 3.0
 autostart = true
 
+[node name="10s" type="Timer" parent="PathSpawner"]
+wait_time = 10.0
+autostart = true
+
 [node name="Check" type="Timer" parent="PathSpawner"]
 wait_time = 0.1
 
-[node name="10s" type="Timer" parent="PathSpawner"]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Musica_juego" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_mdiwo")
 volume_db = -33.293
 autoplay = true
@@ -136,8 +138,8 @@ script = ExtResource("14_s05d5")
 [connection signal="timeout" from="PathSpawner/Score" to="PathSpawner" method="_on_cronómetro_timeout"]
 [connection signal="timeout" from="PathSpawner/5s" to="PathSpawner" method="_on_5s_timeout"]
 [connection signal="timeout" from="PathSpawner/3s" to="PathSpawner" method="_on_3s_timeout"]
-[connection signal="timeout" from="PathSpawner/Check" to="PathSpawner" method="_on_check_timeout"]
 [connection signal="timeout" from="PathSpawner/10s" to="PathSpawner" method="_on_10s_timeout"]
+[connection signal="timeout" from="PathSpawner/Check" to="PathSpawner" method="_on_check_timeout"]
 [connection signal="pressed" from="PAUSE/window" to="PAUSE/window" method="_on_pressed"]
 [connection signal="drag_ended" from="PAUSE/HSlider" to="PAUSE/HSlider" method="_on_drag_ended"]
 [connection signal="value_changed" from="PAUSE/HSlider" to="PAUSE/HSlider" method="_on_value_changed"]

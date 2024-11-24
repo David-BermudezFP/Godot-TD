@@ -1,7 +1,7 @@
 extends Node
 
 var health = 100
-var gold = 1000
+var gold = 30
 var timescore = 0
 var username
 
@@ -9,7 +9,6 @@ func decrement_health(damage: int):
 	health -= damage
 	if health <= 0:
 		game_over()
-		get_tree().change_scene_to_file("res://Escenas/UI/main_menu.tscn")
 		health = 100
 		gold = 30
 		
@@ -17,7 +16,7 @@ func increase_score(points: int):
 	timescore += points
 
 func game_over():
-	$PathSpawner/Score.stop()
+	get_tree().change_scene_to_file("res://Escenas/UI/gameover.tscn")
 	
 func load_username_from_disk():
 	var FILE_NAME = "save/user_data.json"

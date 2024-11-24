@@ -12,139 +12,92 @@ var wailord = preload("res://Escenas/Stages/Stage_agua_Wailord.tscn")
 var growlite = preload("res://Escenas/Stages/Stage_fuego_growlite.tscn")
 var arcanine = preload("res://Escenas/Stages/Stage_fuego_arcanine.tscn")
 var camerupt = preload("res://Escenas/Stages/Stage_fuego_Camerupt.tscn")
+
+var ponyta = preload("res://Escenas/Stages/Stage_fuego_ponyta.tscn")
+var rapidash = preload("res://Escenas/Stages/Stage_fuego_rapidash.tscn")
 #NORMAL
 var rattata = preload("res://Escenas/Stages/Stage_normal_ratata.tscn")
 var raticate = preload("res://Escenas/Stages/Stage_normal_ratikate.tscn")
 var snorlax = preload("res://Escenas/Stages/Stage_normal_Snorlax.tscn")
 
+var meowth = preload("res://Escenas/Stages/Stage_normal_meowth.tscn")
+var persian = preload("res://Escenas/Stages/Stage_normal_persian.tscn")
+
 
 func _on_5s_timeout() -> void:
-	
 	#Ronda 1: 60s
 	if Game.timescore <= 15:
 		spawn_rattata()
+		spawn_ponyta()
+		spawn_rapidash()
 	if Game.timescore > 15 and Game.timescore <= 30:
 		spawn_psyduck()
 	if Game.timescore > 30 and Game.timescore <= 45:
 		spawn_growlite()
 	if Game.timescore > 45 and Game.timescore <= 60:
 		spawn_shroomish()
-	
-	#Ronda 2: 120s
-	if Game.timescore > 60 and Game.timescore <= 80:
+	if Game.timescore > 60 and Game.timescore <= 300:
 		spawn_rattata()
 		spawn_psyduck()
-	if Game.timescore > 80 and Game.timescore <= 100:
-		spawn_growlite()
-		spawn_rattata()
-	if Game.timescore > 100 and Game.timescore <= 120:
-		spawn_rattata()
-		spawn_shroomish()
-	if Game.timescore > 120 and Game.timescore <= 140:
-		spawn_growlite()
-		spawn_psyduck()
-	if Game.timescore > 140 and Game.timescore <= 160:
 		spawn_growlite()
 		spawn_shroomish()
-	if Game.timescore > 160 and Game.timescore <= 180:
-		spawn_shroomish()
-		spawn_psyduck()
-		
-	#Ronda 3: 180s
-	if Game.timescore > 180 and Game.timescore <= 240:
+
+	if Game.timescore > 120 and Game.timescore <= 300:
 		spawn_raticate()
-	if Game.timescore > 240 and Game.timescore <= 260:
-		spawn_rattata()
-		spawn_psyduck()
-		spawn_growlite()
-	if Game.timescore > 260 and Game.timescore <= 280:
-		spawn_shroomish()
-		spawn_psyduck()
-		spawn_growlite()
-	if Game.timescore > 280 and Game.timescore <= 300:
-		spawn_shroomish()
-		spawn_psyduck()
-		spawn_growlite()
-		spawn_rattata()
-	if Game.timescore > 300 and Game.timescore <= 360:
-		spawn_shroomish()
-		spawn_psyduck()
-		spawn_growlite()
-		spawn_raticate()
-		
-		
-	#Ronda 4: 180s
-	if Game.timescore > 360 and Game.timescore <= 420:
-		spawn_shroomish()
+	if Game.timescore > 150 and Game.timescore <= 300:
 		spawn_golduck()
-		spawn_growlite()
-		spawn_raticate()
-	if Game.timescore > 420 and Game.timescore <= 480:
-		spawn_breloom()
-		spawn_golduck()
-		spawn_growlite()
-		spawn_raticate()
-	if Game.timescore > 480 and Game.timescore <= 800:
-		spawn_breloom()
-		spawn_golduck()
+	if Game.timescore > 180 and Game.timescore <= 300:
 		spawn_arcanine()
+	if Game.timescore > 210 and Game.timescore <= 300:
+		spawn_breloom()
+	if Game.timescore > 300:
+		spawn_breloom()
+		spawn_golduck()
 		spawn_raticate()
-	# PARADA A LOS 800 SALEN TANKES
-
-
+		spawn_arcanine()
+		spawn_rattata()
+		spawn_psyduck()
+		spawn_growlite()
+		spawn_shroomish()
 
 #Desde la ronda 5 en adelante
 func _on_3s_timeout() -> void:
-	#Ronda 5.1
-	if Game.timescore > 500 and Game.timescore <= 615:
-		spawn_rattata()
-	if Game.timescore > 615 and Game.timescore <= 630:
-		spawn_shroomish()
-	if Game.timescore > 630 and Game.timescore <= 645:
-		spawn_psyduck()
-	if Game.timescore > 660 and Game.timescore <= 675:
-		spawn_growlite()
-		
-	#Ronda 5.2
-	if Game.timescore > 675 and Game.timescore <= 690:
-		spawn_rattata()
-		spawn_psyduck()
-		spawn_growlite()
-	if Game.timescore > 705 and Game.timescore <= 720:
-		spawn_growlite()
-		spawn_rattata()
-		spawn_shroomish()
-	if Game.timescore > 720 and Game.timescore <= 735:
+	if Game.timescore > 300:
 		spawn_rattata()
 		spawn_shroomish()
 		spawn_psyduck()
-	if Game.timescore > 735 and Game.timescore <= 750:
 		spawn_growlite()
-		spawn_shroomish()
-		spawn_psyduck()
-	if Game.timescore > 750 and Game.timescore <= 765:
-		spawn_growlite()
-		spawn_rattata()
-		spawn_shroomish()
-	if Game.timescore > 765 and Game.timescore <= 800:
-		spawn_shroomish()
-		spawn_psyduck()
-		spawn_growlite()
-		spawn_rattata()
-	# PARADA A LOS 800 SALEN TANKES
+	if Game.timescore > 400 and Game.timescore <= 520:
+		spawn_raticate()
+	if Game.timescore > 430 and Game.timescore <= 520:
+		spawn_golduck()
+	if Game.timescore > 460 and Game.timescore <= 520:
+		spawn_arcanine()
+	if Game.timescore > 490 and Game.timescore <= 520:
+		spawn_breloom()
+	if Game.timescore > 520:
+		spawn_breloom()
+		spawn_golduck()
+		spawn_raticate()
+		spawn_arcanine()
 
 func _on_10s_timeout() -> void:
-	if Game.timescore > 800 and Game.timescore <= 830:
+	if Game.timescore > 520 and Game.timescore <= 640:
 		spawn_snorlax()
 	# 20 SEGUNDOS DE PASO
-	if Game.timescore > 850 and Game.timescore <= 880:
+	if Game.timescore > 550 and Game.timescore <= 640:
 		spawn_exeggcutor()
 	# 20 SEGUNDOS DE PASO
-	if Game.timescore > 900 and Game.timescore <= 930:
+	if Game.timescore > 580 and Game.timescore <= 640:
 		spawn_camerupt()
 	# 20 SEGUNDOS DE PASO
-	if Game.timescore > 950 and Game.timescore <= 1000:
+	if Game.timescore > 610 and Game.timescore <= 640:
 		spawn_wailord()
+	if Game.timescore > 640:
+		spawn_wailord()
+		spawn_camerupt()
+		spawn_exeggcutor()
+		spawn_snorlax()
 
 func spawn_rattata():
 	var rattata_instance = rattata.instantiate()
@@ -194,6 +147,21 @@ func spawn_exeggcutor():
 	var exeggcutor_instance = exeggcutor.instantiate()
 	add_child(exeggcutor_instance)
 	
+func spawn_meowth():
+	var meowth_instance = meowth.instantiate()
+	add_child(meowth_instance)
+
+func spawn_persian():
+	var persian_instance = persian.instantiate()
+	add_child(persian_instance)
+	
+func spawn_ponyta():
+	var ponyta_instance = ponyta.instantiate()
+	add_child(ponyta_instance)
+	
+func spawn_rapidash():
+	var rapidash_instance = rapidash.instantiate()
+	add_child(rapidash_instance)
 	
 func _on_check_timeout() -> void:
 	if $".".get_children() != null:

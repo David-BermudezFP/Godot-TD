@@ -2,6 +2,11 @@ extends Node2D
 
 var ogScales = []
 
+func _ready() -> void:
+	$Musica_juego.set_pitch_scale(1)
+	Game.timescore = 0
+	
+
 func _input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE :
 		if $PAUSE.visible == false:

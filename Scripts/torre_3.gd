@@ -109,8 +109,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 func _on_range_pressed() -> void:
 	if $Tower/CollisionShape2D.scale < Vector2(14,14):
-		if Game.gold >= 10:
-			Game.gold -= 10
+		if Game.gold >= 10 + maxRang*10:
+			Game.gold -= 10 + maxRang*10
 			$Tower/CollisionShape2D.scale = $Tower/CollisionShape2D.scale + Vector2(2,2)
 			maxRang += 1
 	else:
@@ -122,19 +122,19 @@ func _on_range_pressed() -> void:
 
 func _on_attack_speed_pressed() -> void:
 	if $Cadencia.wait_time >= 0.5:
-			if Game.gold >= 10:
-				Game.gold -= 10
-				$Cadencia.wait_time = $Cadencia.wait_time - 0.20
-				maxCad += 1
-			if maxCad == 5:
-				$Upgrade/Upgrade/HBoxContainer/AttackSpeed.disabled = true
-				maxed = maxed + 1
-				self.get_child(maxed+1).get_child(0).play("idle")
+		if Game.gold >= 10 + maxCad*10:
+			Game.gold -= 10 + maxCad*10
+			$Cadencia.wait_time = $Cadencia.wait_time - 0.20
+			maxCad += 1
+		if maxCad == 5:
+			$Upgrade/Upgrade/HBoxContainer/AttackSpeed.disabled = true
+			maxed = maxed + 1
+			self.get_child(maxed+1).get_child(0).play("idle")
 		
 func _on_power_pressed() -> void:
 	if bulletDamage < 5:
-		if Game.gold >= 10:
-			Game.gold -= 10
+		if Game.gold >= 10 + maxPow*10:
+			Game.gold -= 10 + maxPow*10
 			bulletDamage = bulletDamage + 1
 			maxPow += 1
 	else:

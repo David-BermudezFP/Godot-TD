@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dp6t8eeqngj8j"]
+[gd_scene load_steps=42 format=3 uid="uid://dp6t8eeqngj8j"]
 
 [ext_resource type="Script" path="res://Scripts/torre_1.gd" id="1_edwvx"]
 [ext_resource type="Texture2D" uid="uid://dv7ners3t7n2h" path="res://Assets/Pokemon/torres/bulbasaur.png" id="2_ntklt"]
@@ -9,11 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://dgwyyr20rbp04" path="res://Assets/UI/sword_01b.png" id="5_pd8mp"]
 [ext_resource type="Texture2D" uid="uid://cc7bqvimo1ijn" path="res://Assets/Pokemon/torres/MEGAVenusaur.png" id="5_w4wlc"]
 [ext_resource type="Texture2D" uid="uid://4etoax14tr83" path="res://Assets/UI/coin_05d.png" id="6_mowoj"]
+[ext_resource type="Script" path="res://Escenas/towers/precioRange.gd" id="7_2sqlt"]
 [ext_resource type="Script" path="res://Escenas/towers/MaxRang.gd" id="7_yesyr"]
 [ext_resource type="Script" path="res://Escenas/towers/MaxCad.gd" id="9_i5lcm"]
+[ext_resource type="Script" path="res://Escenas/towers/precioCad.gd" id="10_726nw"]
 [ext_resource type="Script" path="res://Escenas/towers/MaxPow.gd" id="11_0sukw"]
 [ext_resource type="Texture2D" uid="uid://o2rme201uoej" path="res://Assets/UI/pearl_01a.png" id="11_6vsa0"]
 [ext_resource type="Script" path="res://Escenas/towers/sell.gd" id="13_kogl4"]
+[ext_resource type="Script" path="res://Escenas/towers/precioPow.gd" id="13_mfk2j"]
 [ext_resource type="Texture2D" uid="uid://btwft0vi7wk13" path="res://Assets/UI/pearl_01b.png" id="13_v7ihm"]
 
 [sub_resource type="Animation" id="Animation_k7rmb"]
@@ -399,8 +402,8 @@ offset_top = 18.7692
 offset_right = 63.8462
 offset_bottom = 41.7692
 scale = Vector2(0.3, 0.3)
-text = "10"
 horizontal_alignment = 1
+script = ExtResource("7_2sqlt")
 
 [node name="Label2" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Range"]
 texture_filter = 1
@@ -433,6 +436,7 @@ offset_bottom = 41.7692
 scale = Vector2(0.3, 0.3)
 text = "10"
 horizontal_alignment = 1
+script = ExtResource("10_726nw")
 
 [node name="Label2" type="Label" parent="Upgrade/Upgrade/HBoxContainer/AttackSpeed"]
 texture_filter = 1
@@ -464,6 +468,7 @@ offset_bottom = 41.7692
 scale = Vector2(0.3, 0.3)
 text = "10"
 horizontal_alignment = 1
+script = ExtResource("13_mfk2j")
 
 [node name="Label2" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Power"]
 texture_filter = 1

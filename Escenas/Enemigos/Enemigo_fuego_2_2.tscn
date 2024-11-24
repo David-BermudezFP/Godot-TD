@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://cyu4rdyppjp5t"]
+
+[ext_resource type="Script" path="res://Scripts/enemigo_fuego_2_2.gd" id="1_vr63v"]
+[ext_resource type="Texture2D" uid="uid://f2qm7q4preo1" path="res://Assets/Pokemon/enemigos/fuego/rapidash.png" id="2_b4y4h"]
+[ext_resource type="Script" path="res://Scripts/animation_tierra.gd" id="3_6eon7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mh4ar"]
+
+[sub_resource type="Animation" id="Animation_pggdv"]
+resource_name = "Abajo"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 3]
+}
+
+[sub_resource type="Animation" id="Animation_qbrpj"]
+resource_name = "Izquierda"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 6]
+}
+
+[sub_resource type="Animation" id="Animation_p16dl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m8mpt"]
+_data = {
+"Abajo": SubResource("Animation_pggdv"),
+"Izquierda": SubResource("Animation_qbrpj"),
+"RESET": SubResource("Animation_p16dl")
+}
+
+[node name="Enemigo_fuego_2_2" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_vr63v")
+
+[node name="Enemigo_CB" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mh4ar")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -4)
+rotation = -1.5708
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("2_b4y4h")
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_m8mpt")
+}
+script = ExtResource("3_6eon7")

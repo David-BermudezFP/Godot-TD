@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://j4xdcny24ol8"]
+[gd_scene load_steps=13 format=3 uid="uid://j4xdcny24ol8"]
 
 [ext_resource type="PackedScene" uid="uid://txo2gifpv3r5" path="res://Escenas/mundo.tscn" id="1_bd4ma"]
 [ext_resource type="Texture2D" uid="uid://cb7tmdlt7d1te" path="res://Assets/UI/Titulo.png" id="2_66rvf"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://w38bo234c8cs" path="res://Assets/UI/Ventana.png" id="8_arp3a"]
 [ext_resource type="Texture2D" uid="uid://dc4dodcs0fer2" path="res://Assets/UI/quit.png" id="8_v6u0y"]
 [ext_resource type="Texture2D" uid="uid://be353xy8nqqxm" path="res://Assets/UI/Fullscreen.png" id="9_2gm3a"]
+[ext_resource type="AudioStream" uid="uid://csbh0gprehqik" path="res://Assets/Musica/menu.mp3" id="12_88id2"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -115,6 +116,11 @@ offset_right = 160.0
 offset_bottom = 80.0
 texture = ExtResource("8_v6u0y")
 expand_mode = 1
+
+[node name="Menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_88id2")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="pressed" from="Panel/play" to="Panel/play" method="_on_pressed"]
 [connection signal="pressed" from="Panel/tuto" to="Panel/tuto" method="_on_pressed"]
