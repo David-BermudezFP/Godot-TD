@@ -37,3 +37,7 @@ window/stretch/mode="canvas_items"
 2d_physics/layer_3="fuego"
 2d_physics/layer_4="planta"
 2d_physics/layer_5="normal"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

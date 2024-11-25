@@ -1,6 +1,6 @@
 extends Node
 
-var health = 100
+var health = 50
 var gold = 30
 var timescore = 0
 var username
@@ -9,7 +9,7 @@ func decrement_health(damage: int):
 	health -= damage
 	if health <= 0:
 		game_over()
-		health = 100
+		health = 50
 		gold = 30
 		
 func increase_score(points: int):

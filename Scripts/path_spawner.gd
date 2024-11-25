@@ -4,10 +4,14 @@ extends Node2D
 var shroomish = preload("res://Escenas/Stages/Stage_planta_shroomish.tscn")
 var breloom = preload("res://Escenas/Stages/Stage_planta_Breloom.tscn")
 var exeggcutor = preload("res://Escenas/Stages/Stage_planta_Exeggcutor.tscn")
+
+var exegg = preload("res://Escenas/Stages/Stage_planta_Exegg.tscn")
 #AGUA
 var psyduck = preload("res://Escenas/Stages/Stage_agua_psyduck.tscn")
 var golduck = preload("res://Escenas/Stages/Stage_agua_golduck.tscn")
 var wailord = preload("res://Escenas/Stages/Stage_agua_Wailord.tscn")
+
+var wailmer = preload("res://Escenas/Stages/Stage_agua_Wailmer.tscn")
 #FUEGO
 var growlite = preload("res://Escenas/Stages/Stage_fuego_growlite.tscn")
 var arcanine = preload("res://Escenas/Stages/Stage_fuego_arcanine.tscn")
@@ -28,8 +32,6 @@ func _on_5s_timeout() -> void:
 	#Ronda 1: 60s
 	if Game.timescore <= 15:
 		spawn_rattata()
-		spawn_ponyta()
-		spawn_rapidash()
 	if Game.timescore > 15 and Game.timescore <= 30:
 		spawn_psyduck()
 	if Game.timescore > 30 and Game.timescore <= 45:
@@ -50,55 +52,97 @@ func _on_5s_timeout() -> void:
 		spawn_arcanine()
 	if Game.timescore > 210 and Game.timescore <= 300:
 		spawn_breloom()
-	if Game.timescore > 300:
+	if Game.timescore > 300 and Game.timescore <= 420:
 		spawn_breloom()
 		spawn_golduck()
 		spawn_raticate()
 		spawn_arcanine()
-		spawn_rattata()
-		spawn_psyduck()
-		spawn_growlite()
-		spawn_shroomish()
+	if Game.timescore > 330 and Game.timescore <= 480:
+		spawn_meowth()
+	if Game.timescore > 360 and Game.timescore <= 480:
+		spawn_ponyta()
+	if Game.timescore > 390 and Game.timescore <= 540:
+		spawn_exegg()
+	if Game.timescore > 420 and Game.timescore <= 540:
+		spawn_wailmer()
+	if Game.timescore > 450 and Game.timescore <= 540:
+		spawn_persian()
+	if Game.timescore > 480 and Game.timescore <= 540:
+		spawn_rapidash()
+	if Game.timescore > 640 and Game.timescore <= 750:
+		spawn_wailord()
+		spawn_camerupt()
+		spawn_exeggcutor()
+		spawn_snorlax()
 
-#Desde la ronda 5 en adelante
+
 func _on_3s_timeout() -> void:
 	if Game.timescore > 300:
 		spawn_rattata()
-		spawn_shroomish()
 		spawn_psyduck()
 		spawn_growlite()
-	if Game.timescore > 400 and Game.timescore <= 520:
-		spawn_raticate()
-	if Game.timescore > 430 and Game.timescore <= 520:
-		spawn_golduck()
-	if Game.timescore > 460 and Game.timescore <= 520:
-		spawn_arcanine()
-	if Game.timescore > 490 and Game.timescore <= 520:
-		spawn_breloom()
-	if Game.timescore > 520:
+		spawn_shroomish()
+		
+	if Game.timescore > 420:
 		spawn_breloom()
 		spawn_golduck()
 		spawn_raticate()
 		spawn_arcanine()
+		
+	if Game.timescore > 480:
+		spawn_ponyta()
+		spawn_meowth()
+		
+	if Game.timescore > 540:
+		spawn_wailmer()
+		spawn_exegg()
+		spawn_rapidash()
+		spawn_persian()
+		
+	if Game.timescore > 750:
+		spawn_wailord()
+		spawn_camerupt()
+		spawn_exeggcutor()
+		spawn_snorlax()
+
 
 func _on_10s_timeout() -> void:
 	if Game.timescore > 520 and Game.timescore <= 640:
 		spawn_snorlax()
-	# 20 SEGUNDOS DE PASO
 	if Game.timescore > 550 and Game.timescore <= 640:
 		spawn_exeggcutor()
-	# 20 SEGUNDOS DE PASO
 	if Game.timescore > 580 and Game.timescore <= 640:
 		spawn_camerupt()
-	# 20 SEGUNDOS DE PASO
 	if Game.timescore > 610 and Game.timescore <= 640:
 		spawn_wailord()
-	if Game.timescore > 640:
+		
+		
+func _on_1s_timeout() -> void:
+	if Game.timescore > 800:
 		spawn_wailord()
 		spawn_camerupt()
 		spawn_exeggcutor()
 		spawn_snorlax()
-
+		
+		spawn_wailmer()
+		spawn_exegg()
+		spawn_rapidash()
+		spawn_persian()
+		
+		spawn_ponyta()
+		spawn_meowth()
+		
+		spawn_breloom()
+		spawn_golduck()
+		spawn_raticate()
+		spawn_arcanine()
+		
+		spawn_rattata()
+		spawn_psyduck()
+		spawn_growlite()
+		spawn_shroomish()
+	
+	
 func spawn_rattata():
 	var rattata_instance = rattata.instantiate()
 	add_child(rattata_instance)
@@ -162,6 +206,14 @@ func spawn_ponyta():
 func spawn_rapidash():
 	var rapidash_instance = rapidash.instantiate()
 	add_child(rapidash_instance)
+	
+func spawn_wailmer():
+	var wailmer_instance = wailmer.instantiate()
+	add_child(wailmer_instance)
+	
+func spawn_exegg():
+	var exegg_instance = exegg.instantiate()
+	add_child(exegg_instance)
 	
 func _on_check_timeout() -> void:
 	if $".".get_children() != null:

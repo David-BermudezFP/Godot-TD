@@ -44,7 +44,7 @@ _data = {
 "RESET": SubResource("Animation_54ndt")
 }
 
-[node name="Enemigo_normal_2_1" type="CharacterBody2D"]
+[node name="Enemigo_normal_2_2" type="CharacterBody2D"]
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("1_0tyof")

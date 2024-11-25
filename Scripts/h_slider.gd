@@ -7,4 +7,4 @@ func _on_drag_ended(value_changed: bool) -> void:
 
 
 func _on_value_changed(value: float) -> void:
-	$"../../AudioStreamPlayer".volume_db = value
+	$"../../Musica_juego".volume_db = value

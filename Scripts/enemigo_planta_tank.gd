@@ -13,7 +13,7 @@ func _process(delta):
 		queue_free()
 	
 	if health <= 0:
-		Game.gold += 25
+		Game.gold += 10
 		get_parent().get_parent().queue_free()
 		for i in leafsFollowing:
 			if is_instance_valid(i):

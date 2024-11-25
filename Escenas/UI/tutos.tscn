@@ -82,8 +82,8 @@ text = "      Planta -> Agua                                         Agua -> Fue
 
 Existen 3 tipos de torres para 3 mismos tipos de enemigos que solo serán atacados por las 
 torres del tipo que las oponga.
-También existen los enemigos de tipo normal que serán atacados po cualquier torre.
-Cada torre costará 10 de oro igual que sus mejoras en Rango, Vel.ataque y Daño"
+También existen los enemigos de tipo normal que serán atacados por cualquier torre.
+Cada torre costará 10 de oro y sus mejoras cada vez mas según su nivel"
 
 [node name="Panel2" type="Panel" parent="."]
 visible = false

@@ -29,6 +29,12 @@ func _input(event):
 							i.get_child(0).get_child(0).speed = 40
 						if i.get_child(0).get_child(0).name.contains("1_2"):
 							i.get_child(0).get_child(0).speed = 50
+						if i.get_child(0).get_child(0).name.contains("2_1"):
+							i.get_child(0).get_child(0).speed = 80
+						if i.get_child(0).get_child(0).name.contains("2_2"):
+							i.get_child(0).get_child(0).speed = 140
+						if i.get_child(0).get_child(0).name.contains("3"):
+							i.get_child(0).get_child(0).speed = 25
 						if i.get_child(0).get_child(0).name.contains("tank"):
 							i.get_child(0).get_child(0).speed = 20
 				
