@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b6j6gcmyiugjt"]
+[gd_scene load_steps=21 format=3 uid="uid://b6j6gcmyiugjt"]
 
 [ext_resource type="Texture2D" uid="uid://cb7tmdlt7d1te" path="res://Assets/UI/Titulo.png" id="1_2byp2"]
 [ext_resource type="VideoStream" path="res://Assets/Pokemon/torres/videos/bulba.ogv" id="2_5mqix"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cntep2e82mbsx" path="res://Assets/UI/next.png" id="17_jdiup"]
 [ext_resource type="Script" path="res://Scripts/next.gd" id="18_oo3st"]
 [ext_resource type="AudioStream" uid="uid://dg5oyo5unibx2" path="res://Assets/Musica/tutos.mp3" id="19_lsqcc"]
+[ext_resource type="Script" path="res://Scripts/musica.gd" id="20_wkv4o"]
 
 [node name="Tutos" type="Node2D"]
 
@@ -241,6 +242,7 @@ script = ExtResource("18_oo3st")
 stream = ExtResource("19_lsqcc")
 volume_db = -20.0
 autoplay = true
+script = ExtResource("20_wkv4o")
 
 [connection signal="pressed" from="volver" to="volver" method="_on_pressed"]
 [connection signal="pressed" from="next" to="next" method="_on_pressed"]

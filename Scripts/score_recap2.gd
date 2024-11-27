@@ -61,6 +61,5 @@ func format_scores(scores: Array) -> String:
 	
 	for score_entry in scores:
 		# Usa el formato con padding para asegurar que los nombres de usuario estén alineados
-		#result_text += "User: %-*s  |\t Score: %d\n" % [max_username_length,score_entry["username"], score_entry["score"]]
-		result_text += "User: %s \n" % [score_entry["username"]]
+		result_text += "\t Score: %d\n" % [score_entry["score"]]
 	return result_text

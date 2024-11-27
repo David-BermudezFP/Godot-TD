@@ -24,18 +24,18 @@ func _on_gui_input(event: InputEvent) -> void:
 			if get_child_count() > 1:
 				get_child(1).global_position = event.global_position
 				
-			var mapPath = get_tree().get_root().get_node("main/mundo/TileMapLayer")
-			var tile = mapPath.local_to_map(get_global_mouse_position())
-			currTile = mapPath.get_cell_atlas_coords(0, tile, false)
-			targets = get_child(1).get_node("TowerDetector").get_overlapping_bodies()
+				var mapPath = get_tree().get_root().get_node("main/mundo/TileMapLayer")
+				var tile = mapPath.local_to_map(get_global_mouse_position())
+				currTile = mapPath.get_cell_atlas_coords(0, tile, false)
+				targets = get_child(1).get_node("TowerDetector").get_overlapping_bodies()
 		
-			if (currTile == Vector2i(1,4)):
-				if (targets.size() > 0):
-					get_child(1).get_node("Area").modulate = Color(255, 255, 255, 0.314)
+				if (currTile == Vector2i(1,4)):
+					if (targets.size() > 0):
+						get_child(1).get_node("Area").modulate = Color(255, 255, 255, 0.314)
+					else:
+						get_child(1).get_node("Area").modulate = Color(0, 0, 0, 0.314)
 				else:
-					get_child(1).get_node("Area").modulate = Color(0, 0, 0, 0.314)
-			else:
-				get_child(1).get_node("Area").modulate = Color(255, 255, 255, 0.314)
+					get_child(1).get_node("Area").modulate = Color(255, 255, 255, 0.314)
 			
 		elif event is InputEventMouseButton and event.button_mask == 0:
 			# Release Click izq

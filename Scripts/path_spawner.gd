@@ -118,7 +118,7 @@ func _on_10s_timeout() -> void:
 		
 		
 func _on_1s_timeout() -> void:
-	if Game.timescore > 800:
+	if Game.timescore > 00:
 		spawn_wailord()
 		spawn_camerupt()
 		spawn_exeggcutor()
@@ -126,10 +126,10 @@ func _on_1s_timeout() -> void:
 		
 		spawn_wailmer()
 		spawn_exegg()
-		spawn_rapidash()
+		#spawn_rapidash()
 		spawn_persian()
 		
-		spawn_ponyta()
+		#spawn_ponyta()
 		spawn_meowth()
 		
 		spawn_breloom()

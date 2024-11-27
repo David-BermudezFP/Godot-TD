@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://fvo841bucexp"]
+[gd_scene load_steps=9 format=3 uid="uid://fvo841bucexp"]
 
 [ext_resource type="Texture2D" uid="uid://kajuhfu6xm3p" path="res://Assets/UI/volver.png" id="1_43lnx"]
 [ext_resource type="PackedScene" uid="uid://txo2gifpv3r5" path="res://Escenas/mundo.tscn" id="1_jmyde"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c5ug0yv4hgkud" path="res://Assets/UI/GAMEOVER.png" id="3_feg5x"]
 [ext_resource type="Script" path="res://Scripts/score_recap.gd" id="4_om6nj"]
 [ext_resource type="AudioStream" uid="uid://csqaf68vvwe8i" path="res://Assets/Musica/Godot_music_Loop.mp3" id="5_0ofop"]
+[ext_resource type="Script" path="res://Scripts/score_recap2.gd" id="6_guag5"]
 [ext_resource type="Script" path="res://Scripts/audio_stream_player.gd" id="6_v1ifl"]
 
 [node name="GAMEOVER" type="Panel"]
@@ -20,25 +21,33 @@ position = Vector2(32, 32)
 [node name="volver" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 416.0
-offset_top = 392.0
-offset_right = 536.0
-offset_bottom = 464.0
+offset_left = 400.0
+offset_top = 432.0
+offset_right = 520.0
+offset_bottom = 504.0
 icon = ExtResource("1_43lnx")
 expand_icon = true
 script = ExtResource("2_26gsk")
 
 [node name="Gameover" type="Sprite2D" parent="."]
-position = Vector2(464, 208)
+position = Vector2(456, 112)
 texture = ExtResource("3_feg5x")
+
+[node name="User_recap" type="Label" parent="."]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 208.0
+offset_right = 456.0
+offset_bottom = 416.0
+script = ExtResource("4_om6nj")
 
 [node name="Score_recap" type="Label" parent="."]
 layout_mode = 0
-offset_left = 376.0
-offset_top = 304.0
-offset_right = 576.0
-offset_bottom = 352.0
-script = ExtResource("4_om6nj")
+offset_left = 488.0
+offset_top = 208.0
+offset_right = 632.0
+offset_bottom = 416.0
+script = ExtResource("6_guag5")
 
 [node name="Musica_juego" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_0ofop")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://j4xdcny24ol8"]
+[gd_scene load_steps=16 format=3 uid="uid://j4xdcny24ol8"]
 
 [ext_resource type="PackedScene" uid="uid://txo2gifpv3r5" path="res://Escenas/mundo.tscn" id="1_bd4ma"]
 [ext_resource type="Texture2D" uid="uid://cb7tmdlt7d1te" path="res://Assets/UI/Titulo.png" id="2_66rvf"]
@@ -7,11 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://dbt2gi11m4xm3" path="res://Assets/UI/play.png" id="4_qoo5g"]
 [ext_resource type="Texture2D" uid="uid://d3vhtpvcbbtky" path="res://Assets/UI/tuto.png" id="5_qsp63"]
 [ext_resource type="Script" path="res://Scripts/tuto.gd" id="5_qx7qs"]
-[ext_resource type="Script" path="res://Scripts/Window_fullscreen.gd" id="7_2icvd"]
-[ext_resource type="Texture2D" uid="uid://w38bo234c8cs" path="res://Assets/UI/Ventana.png" id="8_arp3a"]
+[ext_resource type="Script" path="res://Scripts/opciones.gd" id="7_2icvd"]
+[ext_resource type="Texture2D" uid="uid://dqxawnsjbj8p1" path="res://Assets/UI/opciones.png" id="8_h016s"]
 [ext_resource type="Texture2D" uid="uid://dc4dodcs0fer2" path="res://Assets/UI/quit.png" id="8_v6u0y"]
-[ext_resource type="Texture2D" uid="uid://be353xy8nqqxm" path="res://Assets/UI/Fullscreen.png" id="9_2gm3a"]
+[ext_resource type="Texture2D" uid="uid://b8fjsqk2so8tr" path="res://Assets/UI/pearl_01d.png" id="11_pgiom"]
 [ext_resource type="AudioStream" uid="uid://csbh0gprehqik" path="res://Assets/Musica/menu.mp3" id="12_88id2"]
+[ext_resource type="Script" path="res://Escenas/UI/usuario.gd" id="12_f6n2y"]
+[ext_resource type="Script" path="res://Scripts/musica.gd" id="13_an2s3"]
+[ext_resource type="Script" path="res://Escenas/UI/usuario_label.gd" id="13_ntxya"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -79,23 +82,13 @@ offset_bottom = 380.0
 text = "OPTIONS"
 script = ExtResource("7_2icvd")
 
-[node name="win" type="TextureRect" parent="Panel/window"]
-visible = false
-layout_mode = 0
-offset_left = 12.0
-offset_top = 9.0
-offset_right = 186.0
-offset_bottom = 89.0
-texture = ExtResource("8_arp3a")
-expand_mode = 1
-
 [node name="full" type="TextureRect" parent="Panel/window"]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 14.0
 offset_right = 187.0
 offset_bottom = 84.0
-texture = ExtResource("9_2gm3a")
+texture = ExtResource("8_h016s")
 expand_mode = 1
 
 [node name="quit" type="Button" parent="Panel"]
@@ -117,12 +110,39 @@ offset_bottom = 80.0
 texture = ExtResource("8_v6u0y")
 expand_mode = 1
 
+[node name="Usuario" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 39.0
+offset_right = 151.0
+offset_bottom = 70.0
+
+[node name="Confirm_User" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 46.0
+offset_right = 177.0
+offset_bottom = 70.0
+icon = ExtResource("11_pgiom")
+script = ExtResource("12_f6n2y")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 10.0
+offset_right = 115.0
+offset_bottom = 36.0
+text = "Usuario:"
+script = ExtResource("13_ntxya")
+
 [node name="Menu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_88id2")
 volume_db = -20.0
 autoplay = true
+script = ExtResource("13_an2s3")
 
 [connection signal="pressed" from="Panel/play" to="Panel/play" method="_on_pressed"]
 [connection signal="pressed" from="Panel/tuto" to="Panel/tuto" method="_on_pressed"]
 [connection signal="pressed" from="Panel/window" to="Panel/window" method="_on_pressed"]
 [connection signal="pressed" from="Panel/quit" to="Panel/quit" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Confirm_User" to="Panel/Confirm_User" method="_on_confirm_pressed"]

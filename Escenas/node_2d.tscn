@@ -4,15 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://txo2gifpv3r5" path="res://Escenas/mundo.tscn" id="1_v6wcu"]
 [ext_resource type="Script" path="res://Scripts/path_spawner.gd" id="4_hcd0g"]
 [ext_resource type="PackedScene" uid="uid://cqlpg5b8wp7ea" path="res://Escenas/UI/ui.tscn" id="4_nuc4a"]
-[ext_resource type="Script" path="res://Scripts/Window_fullscreen.gd" id="5_g4tv7"]
 [ext_resource type="Texture2D" uid="uid://w38bo234c8cs" path="res://Assets/UI/Ventana.png" id="6_ahhgk"]
+[ext_resource type="Script" path="res://Escenas/UI/window.gd" id="7_66bci"]
 [ext_resource type="Texture2D" uid="uid://be353xy8nqqxm" path="res://Assets/UI/Fullscreen.png" id="7_x4mwo"]
 [ext_resource type="Texture2D" uid="uid://qn1s0tlxxp8y" path="res://Assets/UI/Pause.png" id="8_o0wcf"]
 [ext_resource type="Script" path="res://Scripts/h_slider.gd" id="9_sdo6o"]
 [ext_resource type="AudioStream" uid="uid://csqaf68vvwe8i" path="res://Assets/Musica/Godot_music_Loop.mp3" id="10_mdiwo"]
 [ext_resource type="Script" path="res://Scripts/audio_stream_player.gd" id="11_et8ye"]
 [ext_resource type="Texture2D" uid="uid://bnye5fi0ybu01" path="res://Assets/UI/volumen.png" id="12_rjaae"]
-[ext_resource type="Texture2D" uid="uid://kajuhfu6xm3p" path="res://Assets/UI/volver.png" id="13_r1lie"]
+[ext_resource type="Texture2D" uid="uid://de1qw3i5knvht" path="res://Assets/UI/Salir.png" id="12_ynygo"]
 [ext_resource type="Script" path="res://Scripts/volver.gd" id="14_s05d5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wfyok"]
@@ -83,7 +83,7 @@ offset_top = 368.0
 offset_right = 576.0
 offset_bottom = 468.0
 text = "OPTIONS"
-script = ExtResource("5_g4tv7")
+script = ExtResource("7_66bci")
 metadata/_edit_group_ = true
 
 [node name="win" type="TextureRect" parent="PAUSE/window"]
@@ -134,7 +134,7 @@ offset_left = 728.0
 offset_top = 48.0
 offset_right = 848.0
 offset_bottom = 120.0
-icon = ExtResource("13_r1lie")
+icon = ExtResource("12_ynygo")
 expand_icon = true
 script = ExtResource("14_s05d5")
 
