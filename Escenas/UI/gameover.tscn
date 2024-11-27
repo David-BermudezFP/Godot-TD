@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://fvo841bucexp"]
+[gd_scene load_steps=10 format=3 uid="uid://fvo841bucexp"]
 
 [ext_resource type="Texture2D" uid="uid://kajuhfu6xm3p" path="res://Assets/UI/volver.png" id="1_43lnx"]
 [ext_resource type="PackedScene" uid="uid://txo2gifpv3r5" path="res://Escenas/mundo.tscn" id="1_jmyde"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://csqaf68vvwe8i" path="res://Assets/Musica/Godot_music_Loop.mp3" id="5_0ofop"]
 [ext_resource type="Script" path="res://Scripts/score_recap2.gd" id="6_guag5"]
 [ext_resource type="Script" path="res://Scripts/audio_stream_player.gd" id="6_v1ifl"]
+[ext_resource type="Script" path="res://Escenas/UI/score_offline.gd" id="9_75rlq"]
 
 [node name="GAMEOVER" type="Panel"]
 offset_left = -32.0
@@ -56,5 +57,13 @@ pitch_scale = 0.5
 autoplay = true
 parameters/looping = true
 script = ExtResource("6_v1ifl")
+
+[node name="Score_offline" type="Label" parent="."]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 256.0
+offset_right = 504.0
+offset_bottom = 344.0
+script = ExtResource("9_75rlq")
 
 [connection signal="pressed" from="volver" to="volver" method="_on_pressed"]

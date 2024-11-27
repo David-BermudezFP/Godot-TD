@@ -126,10 +126,10 @@ func _on_1s_timeout() -> void:
 		
 		spawn_wailmer()
 		spawn_exegg()
-		#spawn_rapidash()
+		spawn_rapidash()
 		spawn_persian()
 		
-		#spawn_ponyta()
+		spawn_ponyta()
 		spawn_meowth()
 		
 		spawn_breloom()
