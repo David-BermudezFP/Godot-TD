@@ -9,8 +9,8 @@ func _ready() -> void:
 
 func _input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE :
+		Game.ispaused = true
 		if $PAUSE.visible == false:
-			Game.ispaused = true
 			$PAUSE.visible = true
 			for i in $PathSpawner.get_children():
 				if str(i).contains("Path"):

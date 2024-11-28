@@ -37,7 +37,7 @@ texture = ExtResource("3_feg5x")
 [node name="User_recap" type="Label" parent="."]
 layout_mode = 0
 offset_left = 304.0
-offset_top = 208.0
+offset_top = 264.0
 offset_right = 456.0
 offset_bottom = 416.0
 script = ExtResource("4_om6nj")
@@ -45,7 +45,7 @@ script = ExtResource("4_om6nj")
 [node name="Score_recap" type="Label" parent="."]
 layout_mode = 0
 offset_left = 488.0
-offset_top = 208.0
+offset_top = 264.0
 offset_right = 632.0
 offset_bottom = 416.0
 script = ExtResource("6_guag5")
@@ -60,10 +60,10 @@ script = ExtResource("6_v1ifl")
 
 [node name="Score_offline" type="Label" parent="."]
 layout_mode = 0
-offset_left = 376.0
-offset_top = 256.0
-offset_right = 504.0
-offset_bottom = 344.0
+offset_left = 392.0
+offset_top = 184.0
+offset_right = 520.0
+offset_bottom = 232.0
 script = ExtResource("9_75rlq")
 
 [connection signal="pressed" from="volver" to="volver" method="_on_pressed"]
