@@ -16,6 +16,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		if event is InputEventMouseButton and event.button_mask == 1:
 			
 			add_child(tempTower) 
+			tempTower.get_node("Area").visible = true
 			
 			tempTower.process_mode = Node.PROCESS_MODE_DISABLED
 			

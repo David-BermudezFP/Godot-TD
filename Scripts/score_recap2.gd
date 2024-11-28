@@ -52,7 +52,7 @@ func _sort_by_score(a, b) -> int:
 
 func format_scores(scores: Array) -> String:
 	# Crear una cadena con el formato deseado para los puntajes
-	var result_text = ""
+	var result_text = "\n"
 	
 	 # Encuentra la longitud máxima del nombre de usuario para alinear
 	var max_username_length = 0
