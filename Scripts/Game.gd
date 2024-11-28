@@ -5,6 +5,7 @@ var health = 50
 var gold = 30
 var timescore = 0
 var username = "Anon"
+var ispaused = false
 
 func decrement_health(damage: int):
 	health -= damage

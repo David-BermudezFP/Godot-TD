@@ -38,6 +38,8 @@ func _on_gui_input(event: InputEvent) -> void:
 					get_child(1).get_node("Area").modulate = Color(255, 255, 255, 0.314)
 			
 		elif event is InputEventMouseButton and event.button_mask == 0:
+			if Game.ispaused == true:
+				return
 			# Release Click izq
 			if event.global_position.x < 50 and event.global_position.y > 431:
 				if get_child_count() > 1:

@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://csqaf68vvwe8i" path="res://Assets/Musica/Godot_music_Loop.mp3" id="5_0ofop"]
 [ext_resource type="Script" path="res://Scripts/score_recap2.gd" id="6_guag5"]
 [ext_resource type="Script" path="res://Scripts/audio_stream_player.gd" id="6_v1ifl"]
-[ext_resource type="Script" path="res://Escenas/UI/score_offline.gd" id="9_75rlq"]
+[ext_resource type="Script" path="res://Scripts/score_offline.gd" id="9_75rlq"]
 
 [node name="GAMEOVER" type="Panel"]
 offset_left = -32.0

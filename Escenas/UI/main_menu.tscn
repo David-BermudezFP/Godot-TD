@@ -12,9 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://dc4dodcs0fer2" path="res://Assets/UI/quit.png" id="8_v6u0y"]
 [ext_resource type="Texture2D" uid="uid://b8fjsqk2so8tr" path="res://Assets/UI/pearl_01d.png" id="11_pgiom"]
 [ext_resource type="AudioStream" uid="uid://csbh0gprehqik" path="res://Assets/Musica/menu.mp3" id="12_88id2"]
-[ext_resource type="Script" path="res://Escenas/UI/usuario.gd" id="12_f6n2y"]
+[ext_resource type="Script" path="res://Scripts/usuario.gd" id="12_f6n2y"]
 [ext_resource type="Script" path="res://Scripts/musica.gd" id="13_an2s3"]
-[ext_resource type="Script" path="res://Escenas/UI/usuario_label.gd" id="13_ntxya"]
+[ext_resource type="Script" path="res://Scripts/usuario_label.gd" id="13_ntxya"]
 
 [node name="MainMenu" type="Node2D"]
 

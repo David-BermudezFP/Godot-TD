@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/path_spawner.gd" id="4_hcd0g"]
 [ext_resource type="PackedScene" uid="uid://cqlpg5b8wp7ea" path="res://Escenas/UI/ui.tscn" id="4_nuc4a"]
 [ext_resource type="Texture2D" uid="uid://w38bo234c8cs" path="res://Assets/UI/Ventana.png" id="6_ahhgk"]
-[ext_resource type="Script" path="res://Escenas/UI/window.gd" id="7_66bci"]
+[ext_resource type="Script" path="res://Scripts/window.gd" id="7_66bci"]
 [ext_resource type="Texture2D" uid="uid://be353xy8nqqxm" path="res://Assets/UI/Fullscreen.png" id="7_x4mwo"]
 [ext_resource type="Texture2D" uid="uid://qn1s0tlxxp8y" path="res://Assets/UI/Pause.png" id="8_o0wcf"]
 [ext_resource type="Script" path="res://Scripts/h_slider.gd" id="9_sdo6o"]

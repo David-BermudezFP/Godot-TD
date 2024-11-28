@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://kajuhfu6xm3p" path="res://Assets/UI/volver.png" id="2_d3iax"]
 [ext_resource type="Script" path="res://Scripts/volver.gd" id="3_4txr1"]
 [ext_resource type="PackedScene" uid="uid://txo2gifpv3r5" path="res://Escenas/mundo.tscn" id="4_bsaob"]
-[ext_resource type="Script" path="res://Escenas/UI/window.gd" id="5_sfcny"]
+[ext_resource type="Script" path="res://Scripts/window.gd" id="5_sfcny"]
 [ext_resource type="Texture2D" uid="uid://w38bo234c8cs" path="res://Assets/UI/Ventana.png" id="6_dcdvt"]
 [ext_resource type="Texture2D" uid="uid://be353xy8nqqxm" path="res://Assets/UI/Fullscreen.png" id="7_krb8w"]
 [ext_resource type="Script" path="res://Scripts/h_slider.gd" id="8_5tdvs"]

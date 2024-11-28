@@ -10,6 +10,7 @@ func _ready() -> void:
 func _input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE :
 		if $PAUSE.visible == false:
+			Game.ispaused = true
 			$PAUSE.visible = true
 			for i in $PathSpawner.get_children():
 				if str(i).contains("Path"):
@@ -22,6 +23,7 @@ func _input(event):
 				i.get_node("Tower").get_child(0).scale = Vector2(0,0)
 		else:
 			$PAUSE.visible = false
+			Game.ispaused = false
 			for i in $PathSpawner.get_children():
 				if str(i).contains("Path"):
 					if i.get_child(0).get_child(0) != null:
